@@ -1,0 +1,2791 @@
+### C:\Users\ADMIN\employee-assessment-portal\src\App.css
+
+
+
+### C:\Users\ADMIN\employee-assessment-portal\src\App.jsx
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import AdminLayout from './layouts/AdminLayout';
+import InterviewManagement from './pages/admin/InterviewManagement'
+
+function App() {
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/admin" element={<AdminLayout />}>
+          <Route path="InterviewManagement" element={<InterviewManagement/>} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
+  );
+}
+
+export default App;
+
+
+### C:\Users\ADMIN\employee-assessment-portal\src\index.css
+
+
+
+### C:\Users\ADMIN\employee-assessment-portal\src\main.jsx
+import { StrictMode } from 'react'
+import { createRoot } from 'react-dom/client'
+import './index.css'
+import App from './App.jsx'
+
+createRoot(document.getElementById('root')).render(
+  <StrictMode>
+    <App />
+  </StrictMode>,
+)
+
+
+
+### C:\Users\ADMIN\employee-assessment-portal\src\assets\react.svg
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="iconify iconify--logos" width="35.93" height="32" preserveAspectRatio="xMidYMid meet" viewBox="0 0 256 228"><path fill="#00D8FF" d="M210.483 73.824a171.49 171.49 0 0 0-8.24-2.597c.465-1.9.893-3.777 1.273-5.621c6.238-30.281 2.16-54.676-11.769-62.708c-13.355-7.7-35.196.329-57.254 19.526a171.23 171.23 0 0 0-6.375 5.848a155.866 155.866 0 0 0-4.241-3.917C100.759 3.829 77.587-4.822 63.673 3.233C50.33 10.957 46.379 33.89 51.995 62.588a170.974 170.974 0 0 0 1.892 8.48c-3.28.932-6.445 1.924-9.474 2.98C17.309 83.498 0 98.307 0 113.668c0 15.865 18.582 31.778 46.812 41.427a145.52 145.52 0 0 0 6.921 2.165a167.467 167.467 0 0 0-2.01 9.138c-5.354 28.2-1.173 50.591 12.134 58.266c13.744 7.926 36.812-.22 59.273-19.855a145.567 145.567 0 0 0 5.342-4.923a168.064 168.064 0 0 0 6.92 6.314c21.758 18.722 43.246 26.282 56.54 18.586c13.731-7.949 18.194-32.003 12.4-61.268a145.016 145.016 0 0 0-1.535-6.842c1.62-.48 3.21-.974 4.76-1.488c29.348-9.723 48.443-25.443 48.443-41.52c0-15.417-17.868-30.326-45.517-39.844Zm-6.365 70.984c-1.4.463-2.836.91-4.3 1.345c-3.24-10.257-7.612-21.163-12.963-32.432c5.106-11 9.31-21.767 12.459-31.957c2.619.758 5.16 1.557 7.61 2.4c23.69 8.156 38.14 20.213 38.14 29.504c0 9.896-15.606 22.743-40.946 31.14Zm-10.514 20.834c2.562 12.94 2.927 24.64 1.23 33.787c-1.524 8.219-4.59 13.698-8.382 15.893c-8.067 4.67-25.32-1.4-43.927-17.412a156.726 156.726 0 0 1-6.437-5.87c7.214-7.889 14.423-17.06 21.459-27.246c12.376-1.098 24.068-2.894 34.671-5.345a134.17 134.17 0 0 1 1.386 6.193ZM87.276 214.515c-7.882 2.783-14.16 2.863-17.955.675c-8.075-4.657-11.432-22.636-6.853-46.752a156.923 156.923 0 0 1 1.869-8.499c10.486 2.32 22.093 3.988 34.498 4.994c7.084 9.967 14.501 19.128 21.976 27.15a134.668 134.668 0 0 1-4.877 4.492c-9.933 8.682-19.886 14.842-28.658 17.94ZM50.35 144.747c-12.483-4.267-22.792-9.812-29.858-15.863c-6.35-5.437-9.555-10.836-9.555-15.216c0-9.322 13.897-21.212 37.076-29.293c2.813-.98 5.757-1.905 8.812-2.773c3.204 10.42 7.406 21.315 12.477 32.332c-5.137 11.18-9.399 22.249-12.634 32.792a134.718 134.718 0 0 1-6.318-1.979Zm12.378-84.26c-4.811-24.587-1.616-43.134 6.425-47.789c8.564-4.958 27.502 2.111 47.463 19.835a144.318 144.318 0 0 1 3.841 3.545c-7.438 7.987-14.787 17.08-21.808 26.988c-12.04 1.116-23.565 2.908-34.161 5.309a160.342 160.342 0 0 1-1.76-7.887Zm110.427 27.268a347.8 347.8 0 0 0-7.785-12.803c8.168 1.033 15.994 2.404 23.343 4.08c-2.206 7.072-4.956 14.465-8.193 22.045a381.151 381.151 0 0 0-7.365-13.322Zm-45.032-43.861c5.044 5.465 10.096 11.566 15.065 18.186a322.04 322.04 0 0 0-30.257-.006c4.974-6.559 10.069-12.652 15.192-18.18ZM82.802 87.83a323.167 323.167 0 0 0-7.227 13.238c-3.184-7.553-5.909-14.98-8.134-22.152c7.304-1.634 15.093-2.97 23.209-3.984a321.524 321.524 0 0 0-7.848 12.897Zm8.081 65.352c-8.385-.936-16.291-2.203-23.593-3.793c2.26-7.3 5.045-14.885 8.298-22.6a321.187 321.187 0 0 0 7.257 13.246c2.594 4.48 5.28 8.868 8.038 13.147Zm37.542 31.03c-5.184-5.592-10.354-11.779-15.403-18.433c4.902.192 9.899.29 14.978.29c5.218 0 10.376-.117 15.453-.343c-4.985 6.774-10.018 12.97-15.028 18.486Zm52.198-57.817c3.422 7.8 6.306 15.345 8.596 22.52c-7.422 1.694-15.436 3.058-23.88 4.071a382.417 382.417 0 0 0 7.859-13.026a347.403 347.403 0 0 0 7.425-13.565Zm-16.898 8.101a358.557 358.557 0 0 1-12.281 19.815a329.4 329.4 0 0 1-23.444.823c-7.967 0-15.716-.248-23.178-.732a310.202 310.202 0 0 1-12.513-19.846h.001a307.41 307.41 0 0 1-10.923-20.627a310.278 310.278 0 0 1 10.89-20.637l-.001.001a307.318 307.318 0 0 1 12.413-19.761c7.613-.576 15.42-.876 23.31-.876H128c7.926 0 15.743.303 23.354.883a329.357 329.357 0 0 1 12.335 19.695a358.489 358.489 0 0 1 11.036 20.54a329.472 329.472 0 0 1-11 20.722Zm22.56-122.124c8.572 4.944 11.906 24.881 6.52 51.026c-.344 1.668-.73 3.367-1.15 5.09c-10.622-2.452-22.155-4.275-34.23-5.408c-7.034-10.017-14.323-19.124-21.64-27.008a160.789 160.789 0 0 1 5.888-5.4c18.9-16.447 36.564-22.941 44.612-18.3ZM128 90.808c12.625 0 22.86 10.235 22.86 22.86s-10.235 22.86-22.86 22.86s-22.86-10.235-22.86-22.86s10.235-22.86 22.86-22.86Z"></path></svg>
+
+
+### C:\Users\ADMIN\employee-assessment-portal\src\assets\styles\global.css
+
+
+
+### C:\Users\ADMIN\employee-assessment-portal\src\assets\styles\theme.js
+
+
+
+### C:\Users\ADMIN\employee-assessment-portal\src\components\admin\BarChart.jsx
+import React from 'react';
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Cell, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+
+const CustomBarChart = ({ data, xKey, yKey, height = 300, colors = ['#6366f1', '#10b981', '#3b82f6', '#f59e0b'], barSize = 30 }) => {
+  return (
+    <ResponsiveContainer width="100%" height={height}>
+      <BarChart
+        data={data}
+        margin={{
+          top: 5,
+          right: 30,
+          left: 20,
+          bottom: 5,
+        }}
+      >
+        <CartesianGrid strokeDasharray="3 3" vertical={false} />
+        <XAxis 
+          dataKey={xKey} 
+          tick={{ fill: '#6b7280' }}
+          tickLine={false}
+        />
+        <YAxis 
+          tick={{ fill: '#6b7280' }}
+          tickLine={false}
+        />
+        <Tooltip 
+          contentStyle={{
+            borderRadius: 8,
+            boxShadow: '0 2px 10px rgba(0,0,0,0.1)',
+            border: 'none'
+          }}
+          formatter={(value) => [value, 'Score']}
+          labelFormatter={(label) => `Category: ${label}`}
+        />
+        <Legend 
+          wrapperStyle={{
+            paddingTop: 20
+          }}
+        />
+        <Bar 
+          dataKey={yKey} 
+          fill={colors[0]}
+          radius={[4, 4, 0, 0]}
+          name="Score"
+        >
+          {data.map((entry, index) => (
+            <Cell key={`cell-${index}`} fill={colors[index % colors.length]} />
+          ))}
+        </Bar>
+      </BarChart>
+    </ResponsiveContainer>
+  );
+};
+
+export default CustomBarChart;
+
+
+### C:\Users\ADMIN\employee-assessment-portal\src\components\admin\ChartView.jsx
+import { useState, useRef, useEffect } from 'react';
+import {
+  Box,
+  Typography,
+  Paper,
+  Avatar,
+  Button,
+  IconButton,
+  Tooltip
+} from '@mui/material';
+import {
+  FiDownload,
+  FiPieChart,
+  FiChevronLeft,
+  FiChevronRight,
+  FiGrid,
+  FiBarChart2
+} from 'react-icons/fi';
+import html2canvas from 'html2canvas';
+import jsPDF from 'jspdf';
+import '../../Styles/ChartView.css';
+import ScoreChart from '../Charts/ScoreChart';
+import SelfInterestChart from '../Charts/SelfInterestChart';
+
+const ChartView = ({ data, onToggleView }) => {
+  const [currentChart, setCurrentChart] = useState(0);
+  const chartWrapperRef = useRef(null);
+
+  const charts = [
+    {
+      title: 'Overall Interview Status',
+      component: <ScoreChart data={data} />,
+      icon: <FiGrid />
+    },
+    {
+      title: 'Self Interested Candidates',
+      component: <SelfInterestChart data={data} />,
+      icon: <FiBarChart2 />
+    },
+  ];
+
+  useEffect(() => {
+    console.log('ChartView Data:', data);
+  }, [data]);
+
+  const handleDownloadPDF = async () => {
+    try {
+      const element = document.getElementById(`chart-${currentChart}`);
+      const canvas = await html2canvas(element, {
+        scale: 2,
+        useCORS: true,
+        scrollY: -window.scrollY,
+        scrollX: 0
+      });
+
+      const imgData = canvas.toDataURL('image/png', 1.0);
+      const pdf = new jsPDF('landscape', 'pt', [canvas.width, canvas.height]);
+
+      // Use data.name or fallback to chart title
+      const fileName = data?.name || charts[currentChart].title;
+
+      pdf.addImage(imgData, 'PNG', 0, 0, canvas.width, canvas.height);
+      pdf.save(`${fileName}.pdf`);
+    } catch (error) {
+      console.error('Error generating PDF:', error);
+    }
+  };
+
+  const navigateChart = (direction) => {
+    const newIndex =
+      direction === 'next'
+        ? (currentChart + 1) % charts.length
+        : (currentChart - 1 + charts.length) % charts.length;
+
+    setCurrentChart(newIndex);
+    chartWrapperRef.current.style.transform = `translateX(-${newIndex * 100}%)`;
+  };
+
+  return (
+    <div className="chart-view-container">
+      <div className="chart-header">
+        <div className="header-left">
+          <Avatar className="chart-avatar">
+            <FiPieChart />
+          </Avatar>
+          <Typography variant="h6" className="chart-title">
+            {charts[currentChart].title}
+          </Typography>
+        </div>
+
+        <div className="header-actions">
+          <Button
+            variant="outlined"
+            onClick={onToggleView}
+            sx={{
+              borderColor: '#6c63ff',
+              color: '#6c63ff',
+              borderRadius: '8px',
+              textTransform: 'none',
+              fontWeight: 500,
+              px: 3,
+              transition: 'all 0.3s ease',
+              '&:hover': {
+                backgroundColor: '#6c63ff',
+                color: '#fff',
+                borderColor: '#6c63ff',
+              }
+            }}
+          >
+            Back to Table
+          </Button>
+
+          <Button
+            variant="contained"
+            startIcon={<FiDownload />}
+            onClick={handleDownloadPDF}
+            sx={{
+              backgroundColor: '#6c63ff',
+              borderRadius: '8px',
+              textTransform: 'none',
+              fontWeight: 500,
+              px: 3,
+              ml: 2,
+              transition: 'all 0.3s ease',
+              '&:hover': {
+                backgroundColor: '#574fd6',
+              }
+            }}
+          >
+            Export PDF
+          </Button>
+        </div>
+      </div>
+
+      <Paper className="chart-paper">
+        <div className="chart-wrapper" ref={chartWrapperRef}>
+          {charts.map((chart, index) => (
+            <div key={index} id={`chart-${index}`} className="chart-item">
+              {chart.component}
+            </div>
+          ))}
+        </div>
+
+        <IconButton className="nav-button prev" onClick={() => navigateChart('prev')}>
+          <FiChevronLeft />
+        </IconButton>
+
+        <IconButton className="nav-button next" onClick={() => navigateChart('next')}>
+          <FiChevronRight />
+        </IconButton>
+      </Paper>
+
+      <div className="chart-indicators">
+        {charts.map((chart, index) => (
+          <Tooltip key={index} title={chart.title}>
+            <div
+              className={`indicator ${currentChart === index ? 'active' : ''}`}
+              onClick={() => {
+                setCurrentChart(index);
+                chartWrapperRef.current.style.transform = `translateX(-${index * 100}%)`;
+              }}
+            >
+              {chart.icon}
+            </div>
+          </Tooltip>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+export default ChartView;
+
+
+
+### C:\Users\ADMIN\employee-assessment-portal\src\components\admin\DonutChart.jsx
+import React from 'react';
+import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip, Legend } from 'recharts';
+
+const CustomDonutChart = ({ data, colors, height = 300, innerRadius = '70%', outerRadius = '90%' }) => {
+  return (
+    <ResponsiveContainer width="100%" height={height}>
+      <PieChart>
+        <Pie
+          data={data}
+          cx="50%"
+          cy="50%"
+          innerRadius={innerRadius}
+          outerRadius={outerRadius}
+          paddingAngle={2}
+          dataKey="value"
+          label={({ name, percent }) => `${name}: ${(percent * 100).toFixed(0)}%`}
+          labelLine={false}
+        >
+          {data.map((entry, index) => (
+            <Cell key={`cell-${index}`} fill={colors[index % colors.length]} />
+          ))}
+        </Pie>
+        <Tooltip 
+          formatter={(value) => [`${value}`, 'Count']}
+          contentStyle={{
+            borderRadius: 8,
+            boxShadow: '0 2px 10px rgba(0,0,0,0.1)',
+            border: 'none'
+          }}
+        />
+        <Legend 
+          layout="horizontal" 
+          verticalAlign="bottom" 
+          align="center"
+          wrapperStyle={{ paddingTop: 20 }}
+        />
+      </PieChart>
+    </ResponsiveContainer>
+  );
+};
+
+export default CustomDonutChart;
+
+
+### C:\Users\ADMIN\employee-assessment-portal\src\components\admin\InterviewTable.jsx
+import React, { useState, useMemo, useEffect } from 'react';
+import {
+  Box,
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+  Paper,
+  TextField,
+  MenuItem,
+  TableSortLabel,
+  Typography,
+  TablePagination,
+  Chip,
+  Button,
+  Avatar,
+  CircularProgress,
+  Snackbar,
+  Alert,
+  useMediaQuery,
+  InputAdornment,
+  Slider
+} from '@mui/material';
+import { FiDownload, FiPieChart, FiX, FiSearch } from 'react-icons/fi';
+import useAssessmentStore from '../../store/InterviewStore';
+import * as XLSX from 'xlsx';
+import '../../Styles/InterviewTable.css';
+
+export default function InterviewTable() {
+  const { data, headers, toggleView } = useAssessmentStore();
+
+  const [billableFilter, setBillableFilter] = useState('');
+  const [projectFilter, setProjectFilter] = useState('');
+  const [searchText, setSearchText] = useState('');
+  const [orderBy, setOrderBy] = useState('');
+  const [order, setOrder] = useState('asc');
+  const [page, setPage] = useState(0);
+  const [rowsPerPage, setRowsPerPage] = useState(10);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState('');
+  const [snackbarOpen, setSnackbarOpen] = useState(false);
+  const [scoreRange, setScoreRange] = useState([0, 5]);
+  const isMobile = useMediaQuery('(max-width:768px)');
+
+  useEffect(() => {
+    if (data.length) setLoading(false);
+  }, [data]);
+
+  const billableKey = useMemo(() => headers.find(h => /billable/i.test(h)), [headers]);
+  const projectKey = useMemo(() => headers.find(h => /current project/i.test(h)), [headers]);
+  const scoreKey = useMemo(() => headers.find(h => /score|rating/i.test(h)), [headers]);
+
+  const allHeaders = useMemo(() => {
+    if (headers?.length) return headers;
+    return data.length ? Array.from(new Set(data.flatMap(row => Object.keys(row)))) : [];
+  }, [headers, data]);
+
+  const { uniqueBillable, uniqueProjects } = useMemo(() => {
+    const bSet = new Set();
+    const pSet = new Set();
+    data.forEach(item => {
+      if (billableKey && item[billableKey]) bSet.add(item[billableKey]);
+      if (projectKey && item[projectKey]) pSet.add(item[projectKey]);
+    });
+    return {
+      uniqueBillable: Array.from(bSet).sort(),
+      uniqueProjects: Array.from(pSet).sort()
+    };
+  }, [data, billableKey, projectKey]);
+
+  const cleanValue = value => {
+    if (value === undefined || value === null || String(value).toLowerCase() === 'nan') return '';
+    if (!isNaN(value) && typeof value === 'string') return Number(value);
+    return value;
+  };
+
+  const processedData = useMemo(() => {
+    return data
+      .map(row => {
+        const cleanedRow = {};
+        allHeaders.forEach(h => {
+          cleanedRow[h] = cleanValue(row[h]);
+        });
+        return cleanedRow;
+      })
+      .filter(item => {
+        const matchesBillable = !billableFilter || (billableKey && item[billableKey] === billableFilter);
+        const matchesProject = !projectFilter || (projectKey && item[projectKey] === projectFilter);
+        const matchesSearch = !searchText || 
+          Object.values(item).some(val => 
+            String(val).toLowerCase().includes(searchText.toLowerCase())
+          );
+        const matchesScore = scoreKey ? 
+          (item[scoreKey] >= scoreRange[0] && item[scoreKey] <= scoreRange[1]) : true;
+        return matchesBillable && matchesProject && matchesSearch && matchesScore;
+      })
+      .sort((a, b) => {
+        if (!orderBy) return 0;
+        const aV = cleanValue(a[orderBy]);
+        const bV = cleanValue(b[orderBy]);
+        return order === 'asc'
+          ? String(aV).localeCompare(String(bV))
+          : String(bV).localeCompare(String(aV));
+      });
+  }, [data, allHeaders, billableFilter, projectFilter, searchText, orderBy, order, billableKey, projectKey, scoreKey, scoreRange]);
+
+  const handleExport = () => {
+    const wb = XLSX.utils.book_new();
+    const ws = XLSX.utils.json_to_sheet(
+      processedData.map(row =>
+        allHeaders.reduce((acc, h) => ({ ...acc, [h]: row[h] ?? '' }), {})
+      ),
+      { header: allHeaders }
+    );
+    XLSX.utils.book_append_sheet(wb, ws, 'InterviewStatus');
+    XLSX.writeFile(wb, `Interview_Status_${new Date().toISOString().split('T')[0]}.xlsx`);
+  };
+
+  const handleSort = header => {
+    const asc = orderBy === header && order === 'asc';
+    setOrder(asc ? 'desc' : 'asc');
+    setOrderBy(header);
+  };
+
+  if (loading) {
+    return (
+      <Box className="loading-container">
+        <CircularProgress />
+      </Box>
+    );
+  }
+
+  return (
+    <Box className="interview-table-container">
+      <Snackbar
+        open={snackbarOpen}
+        autoHideDuration={6000}
+        onClose={() => setSnackbarOpen(false)}
+        anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
+      >
+        <Alert severity="error" onClose={() => setSnackbarOpen(false)}>
+          {error}
+        </Alert>
+      </Snackbar>
+
+      <Box className="table-header">
+        <Box className="table-title">
+          <Avatar className="table-title-avatar">
+            <FiPieChart />
+          </Avatar>
+          <Box className="table-title-text">
+            <Typography variant="h5">Interview Status</Typography>
+            <Typography variant="subtitle2">
+              <Chip label={`${processedData.length} records`} size="small" />
+              Last updated: {new Date().toLocaleTimeString()}
+            </Typography>
+          </Box>
+        </Box>
+        <Box className="action-buttons">
+          <Button className="action-button" startIcon={<FiDownload />} onClick={handleExport}>
+          </Button>
+          <Button className="action-button" startIcon={<FiPieChart />} onClick={toggleView}>
+          </Button>
+        </Box>
+      </Box>
+
+      <Box className="filter-controls">
+        <TextField
+          className="search-field"
+          placeholder="Search..."
+          size="small"
+          value={searchText}
+          onChange={(e) => setSearchText(e.target.value)}
+          InputProps={{
+            startAdornment: (
+              <InputAdornment position="start">
+                <FiSearch className="search-icon" />
+              </InputAdornment>
+            ),
+            sx: {
+              height: 36,
+              borderRadius: '8px',
+              '& .MuiOutlinedInput-notchedOutline': {
+                borderColor: '#e2e8f0',
+              },
+              '&:hover .MuiOutlinedInput-notchedOutline': {
+                borderColor: '#cbd5e1',
+              },
+              '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
+                borderColor: '#6366f1',
+                borderWidth: '1px',
+              }
+            }
+          }}
+          sx={{
+            width: isMobile ? '100%' : '280px',
+            '& .MuiInputBase-input': {
+              padding: '8px 12px',
+              fontSize: '14px',
+            }
+          }}
+        />
+        {billableKey && (
+          <TextField
+            className="filter-select"
+            select
+            label="Billable Status"
+            size="small"
+            value={billableFilter}
+            onChange={e => { setBillableFilter(e.target.value); setPage(0); }}
+            sx={{
+              minWidth: 180,
+              '& .MuiSelect-select': {
+                padding: '8px 32px 8px 12px',
+                fontSize: '14px',
+              },
+              '& .MuiInputLabel-root': {
+                transform: 'translate(14px, 9px) scale(1)',
+              },
+              '& .MuiOutlinedInput-input': {
+                height: '20px',
+              }
+            }}
+          >
+            <MenuItem value=""><em>All</em></MenuItem>
+            {uniqueBillable.map(b => (<MenuItem key={b} value={b} sx={{ fontSize: '14px' }}>{b}</MenuItem>))}
+          </TextField>
+        )}
+        {projectKey && (
+          <TextField
+            className="filter-select"
+            select
+            label="Project"
+            size="small"
+            value={projectFilter}
+            onChange={e => { setProjectFilter(e.target.value); setPage(0); }}
+            sx={{
+              minWidth: 180,
+              '& .MuiSelect-select': {
+                padding: '8px 32px 8px 12px',
+                fontSize: '14px',
+              },
+              '& .MuiInputLabel-root': {
+                transform: 'translate(14px, 9px) scale(1)',
+              },
+              '& .MuiOutlinedInput-input': {
+                height: '20px',
+              }
+            }}
+          >
+            <MenuItem value=""><em>All</em></MenuItem>
+            {uniqueProjects.map(p => (<MenuItem key={p} value={p} sx={{ fontSize: '14px' }}>{p}</MenuItem>))}
+          </TextField>
+        )}
+        {scoreKey && (
+          <Box className="score-filter">
+            <Typography variant="body2">Score Range</Typography>
+            <Slider
+              value={scoreRange}
+              onChange={(e, newValue) => setScoreRange(newValue)}
+              valueLabelDisplay="auto"
+              min={0}
+              max={5}
+              step={0.1}
+              sx={{
+                width: 150,
+                color: '#6c63ff',
+                '& .MuiSlider-valueLabel': {
+                  backgroundColor: '#6c63ff',
+                }
+              }}
+            />
+          </Box>
+        )}
+        {(billableFilter || projectFilter || (scoreRange[0] > 0 || scoreRange[1] < 5)) && (
+          <Button 
+            className="clear-filters-button"
+            startIcon={<FiX />} 
+            onClick={() => {
+              setBillableFilter('');
+              setProjectFilter('');
+              setScoreRange([0, 5]);
+              setPage(0);
+            }}
+            variant="outlined"
+            sx={{
+              height: 36,
+              fontSize: '14px',
+              textTransform: 'none',
+              borderColor: '#e2e8f0',
+              color: '#64748b',
+              '&:hover': {
+                borderColor: '#cbd5e1',
+                backgroundColor: '#f8fafc',
+              }
+            }}
+          >
+            Clear
+          </Button>
+        )}
+      </Box>
+
+      <Box className="table-wrapper">
+        <TableContainer component={Paper} elevation={0}>
+          <Table size="small">
+            <TableHead>
+              <TableRow>
+                {allHeaders.map(h => (
+                  <TableCell key={h} className="table-header-cell">
+                    <TableSortLabel
+                      active={orderBy === h}
+                      direction={orderBy === h ? order : 'asc'}
+                      onClick={() => handleSort(h)}
+                      sx={{
+                        '&.MuiTableSortLabel-root': {
+                          color: '#334155',
+                          fontWeight: 600,
+                        },
+                        '&.Mui-active': {
+                          color: '#6366f1',
+                        },
+                        '&:hover': {
+                          color: '#6366f1',
+                        }
+                      }}
+                    >
+                      {h}
+                    </TableSortLabel>
+                  </TableCell>
+                ))}
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {processedData
+                .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                .map((row, idx) => (
+                  <TableRow key={idx} hover className="table-row">
+                    {allHeaders.map(h => (
+                      <TableCell key={h} className="table-body-cell">
+                        {String(row[h] ?? '')}
+                      </TableCell>
+                    ))}
+                  </TableRow>
+                ))}
+            </TableBody>
+          </Table>
+        </TableContainer>
+        <TablePagination
+          rowsPerPageOptions={[5, 10, 25, 50]}
+          component="div"
+          count={processedData.length}
+          rowsPerPage={rowsPerPage}
+          page={page}
+          onPageChange={(_, newPage) => setPage(newPage)}
+          onRowsPerPageChange={(e) => {
+            setRowsPerPage(parseInt(e.target.value, 10));
+            setPage(0);
+          }}
+          className="pagination"
+          sx={{
+            '& .MuiTablePagination-selectLabel': {
+              fontSize: '14px',
+              color: '#64748b',
+            },
+            '& .MuiTablePagination-displayedRows': {
+              fontSize: '14px',
+              color: '#334155',
+            },
+            '& .MuiSelect-select': {
+              fontSize: '14px',
+            }
+          }}
+        />
+      </Box>
+    </Box>
+  );
+}
+
+
+### C:\Users\ADMIN\employee-assessment-portal\src\components\admin\MetricCard.jsx
+import { Card, CardContent, Typography, Box } from '@mui/material';
+
+export default function MetricCard({ title, value, icon, trend }) {
+  return (
+    <Card sx={{ flex: 1, display: 'flex', alignItems: 'center', gap: 2, p: 2 }}>
+      <Box sx={{ fontSize: 40 }}>{icon}</Box>
+      <CardContent sx={{ p: 0 }}>
+        <Typography variant="subtitle2" color="text.secondary">
+          {title}
+        </Typography>
+        <Typography variant="h5">{value}</Typography>
+        {trend && (
+          <Typography variant="caption" color="success.main">
+            {trend}
+          </Typography>
+        )}
+      </CardContent>
+    </Card>
+  );
+}
+
+
+
+### C:\Users\ADMIN\employee-assessment-portal\src\components\admin\PieChart.jsx
+import React from 'react';
+import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip, Legend } from 'recharts';
+
+const CustomPieChart = ({ data, colors, height = 300, withTooltip = true, legend = true, innerRadius = 0 }) => {
+  return (
+    <ResponsiveContainer width="100%" height={height}>
+      <PieChart>
+        <Pie
+          data={data}
+          cx="50%"
+          cy="50%"
+          innerRadius={innerRadius}
+          outerRadius="80%"
+          paddingAngle={2}
+          dataKey="value"
+          label={({ name, percent }) => `${name}: ${(percent * 100).toFixed(0)}%`}
+        >
+          {data.map((entry, index) => (
+            <Cell key={`cell-${index}`} fill={colors[index % colors.length]} />
+          ))}
+        </Pie>
+        {withTooltip && (
+          <Tooltip 
+            formatter={(value) => [`${value}`, 'Count']}
+            contentStyle={{
+              borderRadius: 8,
+              boxShadow: '0 2px 10px rgba(0,0,0,0.1)',
+              border: 'none'
+            }}
+          />
+        )}
+        {legend && (
+          <Legend 
+            layout="horizontal" 
+            verticalAlign="bottom" 
+            align="center"
+            wrapperStyle={{ paddingTop: 20 }}
+          />
+        )}
+      </PieChart>
+    </ResponsiveContainer>
+  );
+};
+
+export default CustomPieChart;
+
+
+### C:\Users\ADMIN\employee-assessment-portal\src\components\admin\RadialBarChart.jsx
+import React from 'react';
+import { RadialBarChart, RadialBar, Cell, ResponsiveContainer, PolarAngleAxis, Tooltip, Legend } from 'recharts';
+
+const CustomRadialBarChart = ({ data, height = 300 }) => {
+  return (
+    <ResponsiveContainer width="100%" height={height}>
+      <RadialBarChart
+        innerRadius="10%"
+        outerRadius="90%"
+        data={data}
+        startAngle={180}
+        endAngle={0}
+      >
+        <PolarAngleAxis
+          type="number"
+          domain={[0, 100]}
+          angleAxisId={0}
+          tick={false}
+        />
+        <RadialBar
+          background
+          dataKey="value"
+          cornerRadius={10}
+          fill="#8884d8"
+        >
+          {data.map((entry, index) => (
+            <Cell key={`cell-${index}`} fill={entry.fill} />
+          ))}
+        </RadialBar>
+        <Tooltip 
+          formatter={(value) => [`${value}%`, 'Completion']}
+          contentStyle={{
+            borderRadius: 8,
+            boxShadow: '0 2px 10px rgba(0,0,0,0.1)',
+            border: 'none'
+          }}
+        />
+        <Legend 
+          iconSize={10}
+          layout="vertical"
+          verticalAlign="middle"
+          align="right"
+          wrapperStyle={{
+            right: -20,
+            top: '50%',
+            transform: 'translateY(-50%)'
+          }}
+        />
+      </RadialBarChart>
+    </ResponsiveContainer>
+  );
+};
+
+export default CustomRadialBarChart;
+
+
+### C:\Users\ADMIN\employee-assessment-portal\src\components\admin\StatusBadge.jsx
+import React from 'react';
+import {
+  Chip,
+  Menu,
+  MenuItem,
+  ListItemIcon
+} from '@mui/material';
+import { INTERVIEW_STAGES } from '../../utils/interviewStages';
+
+const StatusBadge = ({ status, onChange }) => {
+  const [anchorEl, setAnchorEl] = React.useState(null);
+
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
+  const handleStatusChange = (newStatus) => {
+    onChange(newStatus);
+    handleClose();
+  };
+
+  return (
+    <>
+      <Chip
+        label={INTERVIEW_STAGES[status]?.label || status}
+        color={INTERVIEW_STAGES[status]?.color || 'default'}
+        onClick={handleClick}
+        variant="outlined"
+        size="small"
+        sx={{ cursor: 'pointer' }}
+      />
+      
+      <Menu
+        anchorEl={anchorEl}
+        open={Boolean(anchorEl)}
+        onClose={handleClose}
+      >
+        {Object.entries(INTERVIEW_STAGES).map(([key, { label, icon }]) => (
+          <MenuItem 
+            key={key} 
+            onClick={() => handleStatusChange(key)}
+            selected={status === key}
+          >
+            <ListItemIcon>
+              {icon}
+            </ListItemIcon>
+            {label}
+          </MenuItem>
+        ))}
+      </Menu>
+    </>
+  );
+};
+
+export default StatusBadge;
+
+
+### C:\Users\ADMIN\employee-assessment-portal\src\components\Charts\AbsenteeHeatmap.jsx
+import React from 'react';
+import { Card, CardContent, Typography, Box } from '@mui/material';
+import { motion } from 'framer-motion';
+
+export default function AbsenteeHeatmap({ data }) {
+  return (
+    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6 }}>
+      <Card sx={{ borderRadius: 2, boxShadow: 3 }}>
+        <CardContent>
+          <Typography variant="h6" sx={{ mb: 2, fontWeight: 600 }}>
+            Absentee Heatmap
+          </Typography>
+          <Box sx={{ display: 'grid', gridTemplateColumns: 'repeat(7, 1fr)', gap: 1 }}>
+            {data.map((cell, idx) => {
+              const intensity = Math.min(1, cell.count / Math.max(...data.map(d => d.count)));
+              return (
+                <motion.div
+                  key={idx}
+                  whileHover={{ scale: 1.1 }}
+                  sx={{
+                    width: '100%',
+                    height: 40,
+                    bgcolor: `rgba(233,30,99,${intensity})`,
+                    borderRadius: 1
+                  }}
+                />
+              );
+            })}
+          </Box>
+        </CardContent>
+      </Card>
+    </motion.div>
+  );
+}
+
+
+
+
+### C:\Users\ADMIN\employee-assessment-portal\src\components\Charts\AttendanceChart.jsx
+import React from 'react';
+import { Card, CardContent, Typography, useTheme } from '@mui/material';
+import { RadialBarChart, RadialBar, Legend, ResponsiveContainer } from 'recharts';
+import { motion } from 'framer-motion';
+
+export default function AttendanceChart({ data }) {
+  const theme = useTheme();
+  return (
+    <motion.div initial={{ rotate: -45 }} animate={{ rotate: 0 }} transition={{ duration: 0.6 }}>
+      <Card sx={{ borderRadius: 2, boxShadow: 3 }}>
+        <CardContent>
+          <Typography variant="h6" sx={{ mb: 2, fontWeight: 600 }}>
+            Attendance Overview
+          </Typography>
+          <ResponsiveContainer width="100%" height={300}>
+            <RadialBarChart innerRadius="10%" outerRadius="80%" data={data} startAngle={90} endAngle={-270}>
+              <RadialBar
+                minAngle={15}
+                label={{ position: 'insideStart', fill: theme.palette.text.primary }}
+                background
+                clockWise
+                dataKey="value"
+                fill={theme.palette.primary.main}
+              />
+              <Legend verticalAlign="bottom" height={36} />
+            </RadialBarChart>
+          </ResponsiveContainer>
+        </CardContent>
+      </Card>
+    </motion.div>
+  );
+}
+
+
+
+
+### C:\Users\ADMIN\employee-assessment-portal\src\components\Charts\IntegrityTable.jsx
+import React from 'react';
+import { Card, CardContent, Typography, Table, TableHead, TableRow, TableCell, TableBody } from '@mui/material';
+import { motion } from 'framer-motion';
+
+export default function IntegrityTable({ data }) {
+  return (
+    <Card sx={{ borderRadius: 2, boxShadow: 3 }}>
+      <CardContent>
+        <Typography variant="h6" sx={{ mb: 2, fontWeight: 600 }}>
+          Integrity Scores
+        </Typography>
+        <Table>
+          <TableHead>
+            <TableRow>
+              {Object.keys(data[0] || {}).map((col) => (
+                <TableCell key={col} sx={{ fontWeight: 600, bgcolor: 'grey.100' }}>{col}</TableCell>
+              ))}
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {data.map((row, i) => (
+              <motion.tr
+                key={i}
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: i * 0.1 }}
+              >
+                {Object.values(row).map((val, j) => (
+                  <TableCell key={j}>{val}</TableCell>
+                ))}
+              </motion.tr>
+            ))}
+          </TableBody>
+        </Table>
+      </CardContent>
+    </Card>
+  );
+}
+
+
+
+### C:\Users\ADMIN\employee-assessment-portal\src\components\Charts\ScoreChart.jsx
+import React, { useMemo } from 'react';
+import {
+  Card,
+  CardContent,
+  Typography,
+  useTheme,
+  Box,
+  Avatar,
+  Chip
+} from '@mui/material';
+import {
+  BarChart,
+  Bar,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  Legend,
+  ResponsiveContainer,
+  Cell
+} from 'recharts';
+import { motion } from 'framer-motion';
+import {
+  FiAward,
+  FiTrendingUp,
+  FiAlertTriangle
+} from 'react-icons/fi';
+import '../../Styles/ScoreChart.css';
+
+const ScoreChart = ({ data }) => {
+  const theme = useTheme();
+
+  const NAME_FIELDS = [
+    'Resource Name',
+    'Employee Name',
+    'Name',
+    'Candidate Name',
+    'Interviewer Name'
+  ];
+
+  const SCORE_FIELDS = [
+    'Score',
+    'Rating',
+    'Assessment',
+    'Grade',
+    'Technical Score',
+    'Communication Score',
+    'Overall Score'
+  ];
+
+  const chartData = useMemo(() => {
+    if (!data || data.length === 0) return [];
+
+    return data.map(employee => {
+      const nameField = NAME_FIELDS.find(field =>
+        Object.keys(employee).some(key =>
+          key.toLowerCase().includes(field.toLowerCase())
+        )
+      );
+
+      const nameKey = nameField ?
+        Object.keys(employee).find(key =>
+          key.toLowerCase().includes(nameField.toLowerCase())
+        ) : null;
+
+      const employeeName = nameKey ? employee[nameKey] : 'Unknown Employee';
+
+      const scoreColumns = Object.keys(employee).filter(key =>
+        SCORE_FIELDS.some(field =>
+          key.toLowerCase().includes(field.toLowerCase())
+        )
+      );
+
+      const scores = scoreColumns
+        .map(col => {
+          const val = employee[col];
+          const numVal = typeof val === 'number' ? val :
+            typeof val === 'string' ? parseFloat(val) || 0 : 0;
+          return {
+            name: col,
+            value: numVal,
+            percent: (numVal / 5 * 100).toFixed(0) + '%'
+          };
+        })
+        .filter(score => !isNaN(score.value));
+
+      const avgScore = scores.length > 0 ?
+        (scores.reduce((a, b) => a + b.value, 0)) / scores.length : 0;
+
+      return {
+        name: employeeName,
+        score: parseFloat(avgScore.toFixed(2)),
+        scorePercent: (avgScore / 5 * 100).toFixed(0) + '%',
+        scores,
+        technical: parseFloat(employee['Technical Score'] || avgScore.toFixed(2)),
+        communication: parseFloat(employee['Communication Score'] || 0),
+        overall: parseFloat(employee['Overall Rating'] || avgScore.toFixed(2))
+      };
+    }).sort((a, b) => b.score - a.score);
+  }, [data]);
+
+  const stats = useMemo(() => {
+    if (chartData.length === 0) return null;
+
+    const scores = chartData.map(d => d.score);
+    const avg = scores.reduce((a, b) => a + b, 0) / scores.length;
+
+    return {
+      highest: {
+        value: Math.max(...scores).toFixed(2),
+        percent: (Math.max(...scores) / 5 * 100).toFixed(0) + '%'
+      },
+      average: {
+        value: avg.toFixed(2),
+        percent: (avg / 5 * 100).toFixed(0) + '%'
+      },
+      lowest: {
+        value: Math.min(...scores).toFixed(2),
+        percent: (Math.min(...scores) / 5 * 100).toFixed(0) + '%'
+      }
+    };
+  }, [chartData]);
+
+  const CustomTooltip = ({ active, payload, label }) => {
+    if (active && payload && payload.length) {
+      const data = payload[0].payload;
+      return (
+        <div className="custom-tooltip">
+          <Typography variant="subtitle2">{data.name}</Typography>
+          <Box>
+            <Typography variant="body2">
+              <strong>Average:</strong> {data.score} ({data.scorePercent})
+            </Typography>
+            {data.scores.map((score, i) => (
+              <Typography key={i} variant="body2">
+                <strong>{score.name}:</strong> {score.value} ({score.percent})
+              </Typography>
+            ))}
+          </Box>
+        </div>
+      );
+    }
+    return null;
+  };
+
+  if (chartData.length === 0) {
+    return (
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5 }}
+        className="no-data-container"
+      >
+        <Typography variant="h6" color="textSecondary">
+          No score data available in the uploaded file
+        </Typography>
+      </motion.div>
+    );
+  }
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6 }}
+    >
+      <Card className="score-chart-container">
+        <CardContent>
+          <Box className="chart-header">
+            <Typography variant="h5" className="chart-title">
+              Employee Performance Scores
+            </Typography>
+            <Typography variant="body2" color="textSecondary">
+              {chartData.length} employees assessed (top 15)
+            </Typography>
+          </Box>
+
+          <motion.div
+            className="chart-wrapper"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.2, duration: 0.8 }}
+          >
+            <ResponsiveContainer width="100%" height={500}>
+              <BarChart
+                data={chartData.slice(0, 15)}
+                layout="vertical"
+                margin={{ top: 20, right: 30, left: 120, bottom: 20 }}
+              >
+                <CartesianGrid strokeDasharray="3 3" stroke="#cbd5e1" />
+                <XAxis
+                  type="number"
+                  domain={[0, 5]}
+                  tickCount={6}
+                  stroke="#64748b"
+                  tickFormatter={(val) => `${val} (${Math.round(val / 5 * 100)}%)`}
+                />
+                <YAxis
+                  dataKey="name"
+                  type="category"
+                  stroke="#64748b"
+                  tick={{ fontSize: 12 }}
+                  width={140}
+                />
+                <Tooltip content={<CustomTooltip />} />
+                <Legend />
+                <Bar
+                  dataKey="score"
+                  name="Average Score"
+                  radius={[0, 6, 6, 0]}
+                  animationDuration={1500}
+                >
+                  {chartData.slice(0, 15).map((entry, index) => (
+                    <Cell
+                      key={`cell-${index}`}
+                      fill={
+                        entry.score >= 4 ? '#1E3A8A' :
+                          entry.score >= 3 ? '#3B82F6' :
+                            '#93C5FD'
+                      }
+                    />
+                  ))}
+                </Bar>
+              </BarChart>
+            </ResponsiveContainer>
+          </motion.div>
+
+          {stats && (
+            <Box className="stats-container">
+              <motion.div
+                className="stat-box highest"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.4, duration: 0.6 }}
+              >
+                <Avatar className="stat-icon" sx={{ bgcolor: '#1E3A8A' }}>
+                  <FiAward />
+                </Avatar>
+                <Box>
+                  <Typography variant="body2">Highest</Typography>
+                  <Typography variant="h4">{stats.highest.value}</Typography>
+                  <Chip
+                    label={stats.highest.percent}
+                    size="small"
+                    sx={{ bgcolor: '#DBEAFE', color: '#1E3A8A' }}
+                  />
+                </Box>
+              </motion.div>
+
+              <motion.div
+                className="stat-box average"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.5, duration: 0.6 }}
+              >
+                <Avatar className="stat-icon" sx={{ bgcolor: '#2563EB' }}>
+                  <FiTrendingUp />
+                </Avatar>
+                <Box>
+                  <Typography variant="body2">Average</Typography>
+                  <Typography variant="h4">{stats.average.value}</Typography>
+                  <Chip
+                    label={stats.average.percent}
+                    size="small"
+                    sx={{ bgcolor: '#DBEAFE', color: '#1E40AF' }}
+                  />
+                </Box>
+              </motion.div>
+
+              <motion.div
+                className="stat-box lowest"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.6, duration: 0.6 }}
+              >
+                <Avatar className="stat-icon" sx={{ bgcolor: '#BFDBFE' }}>
+                  <FiAlertTriangle />
+                </Avatar>
+                <Box>
+                  <Typography variant="body2">Lowest</Typography>
+                  <Typography variant="h4">{stats.lowest.value}</Typography>
+                  <Chip
+                    label={stats.lowest.percent}
+                    size="small"
+                    sx={{ bgcolor: '#EFF6FF', color: '#1D4ED8' }}
+                  />
+                </Box>
+              </motion.div>
+            </Box>
+          )}
+        </CardContent>
+      </Card>
+    </motion.div>
+  );
+};
+
+export default ScoreChart;
+
+
+
+### C:\Users\ADMIN\employee-assessment-portal\src\components\Charts\SelfInterestChart.jsx
+import React from 'react';
+import { Card, CardContent, Typography, useTheme } from '@mui/material';
+import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer } from 'recharts';
+import { motion } from 'framer-motion';
+
+const COLORS = [];
+export default function SelfInterestChart({ data }) {
+  const theme = useTheme();
+  return (
+    <motion.div initial={{ scale: 0.8 }} animate={{ scale: 1 }} transition={{ duration: 0.6 }}>
+      <Card sx={{ borderRadius: 2, boxShadow: 3 }}>
+        <CardContent>
+          <Typography variant="h6" sx={{ mb: 2, fontWeight: 600 }}>
+            Self‑Interest Breakdown
+          </Typography>
+          <ResponsiveContainer width="100%" height={300}>
+            <PieChart>
+              <Pie
+                data={data}
+                dataKey="value"
+                nameKey="name"
+                innerRadius={60}
+                outerRadius={100}
+                paddingAngle={3}
+                label
+              >
+                {data.map((entry, index) => (
+                  <Cell key={entry.name} fill={theme.palette.secondary.light} />
+                ))}
+              </Pie>
+              <Tooltip />
+            </PieChart>
+          </ResponsiveContainer>
+        </CardContent>
+      </Card>
+    </motion.div>
+  );
+}
+
+
+
+### C:\Users\ADMIN\employee-assessment-portal\src\components\shared\AdminNavbar.jsx
+import { AppBar, Toolbar, Typography, IconButton, Box } from '@mui/material';
+import MenuIcon from '@mui/icons-material/Menu';
+
+export default function AdminNavbar() {
+  return (
+    <AppBar position="fixed" sx={{ zIndex: (theme) => theme.zIndex.drawer + 1, background: 'linear-gradient(45deg,rgb(25, 74, 148), #2a5298)' }}>
+      <Toolbar sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+        <Box sx={{ display: 'flex', alignItems: 'center' }}>
+          <IconButton
+            color="inherit"
+            edge="start"
+            sx={{ mr: 2, '&:hover': { backgroundColor: 'rgba(255, 255, 255, 0.2)' } }}
+          >
+            <MenuIcon />
+          </IconButton>
+          <Typography variant="h6" noWrap sx={{ fontWeight: 'bold', letterSpacing: '1px', color: '#fff' }}>
+            Admin Dashboard
+          </Typography>
+        </Box>
+        <Box sx={{ display: 'flex', alignItems: 'center' }}>
+        </Box>
+      </Toolbar>
+    </AppBar>
+  );
+}
+
+
+
+### C:\Users\ADMIN\employee-assessment-portal\src\components\shared\AdminSidebar.jsx
+import { 
+    Drawer, 
+    List, 
+    ListItem, 
+    ListItemIcon, 
+    ListItemText,
+    Toolbar,
+    Divider,
+    Box,
+    Typography,
+    Avatar,
+    useTheme,
+    IconButton
+  } from '@mui/material';
+  import { 
+    Dashboard, 
+    People, 
+    Settings,
+    Logout,
+    ChevronLeft,
+    MenuOpen
+  } from '@mui/icons-material';
+  import { NavLink } from 'react-router-dom';
+  import { styled } from '@mui/material/styles';
+  import { useState } from 'react';
+  
+  const menuItems = [
+    { text: 'Interview Status Management', icon: <People />, path: '/admin/InterviewManagement' },
+  ];
+  
+  const settingsItems = [
+    { text: 'Settings', icon: <Settings />, path: '/admin/settings' },
+    { text: 'Logout', icon: <Logout />, path: '/logout' }
+  ];
+  
+  const StyledNavLink = styled(NavLink)(({ theme }) => ({
+    textDecoration: 'none',
+    color: theme.palette.text.primary,
+    width: '100%',
+    '&.active': {
+      '& .MuiListItem-root': {
+        backgroundColor: theme.palette.action.selected,
+        borderRight: `4px solid ${theme.palette.primary.main}`,
+        '& .MuiListItemIcon-root': {
+          color: theme.palette.primary.main
+        },
+        '& .MuiListItemText-primary': {
+          fontWeight: theme.typography.fontWeightMedium
+        }
+      }
+    }
+  }));
+  
+  export default function AdminSidebar() {
+    const theme = useTheme();
+    const [collapsed, setCollapsed] = useState(false);
+  
+    return (
+      <Drawer 
+        variant="permanent" 
+        sx={{ 
+          width: collapsed ? 72 : 240,
+          flexShrink: 0,
+          transition: theme.transitions.create('width', {
+            easing: theme.transitions.easing.sharp,
+            duration: theme.transitions.duration.leavingScreen,
+          }),
+          '& .MuiDrawer-paper': {
+            width: collapsed ? 72 : 240,
+            boxSizing: 'border-box',
+            transition: theme.transitions.create('width', {
+              easing: theme.transitions.easing.sharp,
+              duration: theme.transitions.duration.leavingScreen,
+            }),
+            borderRight: 'none',
+            boxShadow: theme.shadows[3]
+          }
+        }}
+      >
+        <Toolbar sx={{ 
+          display: 'flex', 
+          alignItems: 'center',
+          justifyContent: collapsed ? 'center' : 'space-between',
+          px: collapsed ? 0 : 2,
+          minHeight: '64px !important'
+        }}>
+          {!collapsed && (
+            <Typography variant="h6" noWrap>
+              Admin Panel
+            </Typography>
+          )}
+          <IconButton onClick={() => setCollapsed(!collapsed)}>
+            {collapsed ? <MenuOpen /> : <ChevronLeft />}
+          </IconButton>
+        </Toolbar>
+        
+        <Box sx={{ 
+          display: 'flex', 
+          flexDirection: 'column',
+          height: 'calc(100vh - 64px)'
+        }}>
+          <Box sx={{ p: 2, display: collapsed ? 'none' : 'block' }}>
+            <Box sx={{ 
+              display: 'flex', 
+              alignItems: 'center',
+              gap: 2,
+              p: 1.5,
+              borderRadius: 1,
+              bgcolor: theme.palette.action.hover
+            }}>
+              <Avatar sx={{ width: 40, height: 40 }}>A</Avatar>
+              <Box>
+                <Typography variant="subtitle2">Admin User</Typography>
+                <Typography variant="caption">Super Admin</Typography>
+              </Box>
+            </Box>
+          </Box>
+          
+          <Divider />
+          
+          <List sx={{ flexGrow: 1 }}>
+            {menuItems.map((item) => (
+              <StyledNavLink to={item.path} key={item.text}>
+                <ListItem sx={{
+                  px: collapsed ? 2.5 : 3,
+                  py: 1.5,
+                  transition: 'all 0.2s ease',
+                  '&:hover': {
+                    backgroundColor: theme.palette.action.hover
+                  }
+                }}>
+                  <ListItemIcon sx={{ 
+                    minWidth: collapsed ? 'auto' : 40,
+                    color: theme.palette.text.secondary
+                  }}>
+                    {item.icon}
+                  </ListItemIcon>
+                  {!collapsed && <ListItemText primary={item.text} />}
+                </ListItem>
+              </StyledNavLink>
+            ))}
+          </List>
+          
+          <Divider />
+          
+          <List>
+            {settingsItems.map((item) => (
+              <StyledNavLink to={item.path} key={item.text}>
+                <ListItem sx={{
+                  px: collapsed ? 2.5 : 3,
+                  py: 1.5,
+                  transition: 'all 0.2s ease',
+                  '&:hover': {
+                    backgroundColor: theme.palette.action.hover
+                  }
+                }}>
+                  <ListItemIcon sx={{ 
+                    minWidth: collapsed ? 'auto' : 40,
+                    color: theme.palette.text.secondary
+                  }}>
+                    {item.icon}
+                  </ListItemIcon>
+                  {!collapsed && <ListItemText primary={item.text} />}
+                </ListItem>
+              </StyledNavLink>
+            ))}
+          </List>
+        </Box>
+      </Drawer>
+    );
+  }
+
+
+### C:\Users\ADMIN\employee-assessment-portal\src\Contexts\DataContext.jsx
+import React, { createContext, useState, useEffect } from 'react';
+
+export const DataContext = createContext();
+
+export const DataProvider = ({ children }) => {
+  const [candidates, setCandidates] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+
+  useEffect(() => {
+    fetchInitialData();
+  }, []);
+
+  const fetchInitialData = async () => {
+    setIsLoading(true);
+    try {
+
+      const mockData = [
+        { id: 1, name: 'John Doe', status: 'screening', score: 76 },
+        { id: 2, name: 'Jane Smith', status: 'technical', score: 88 }
+      ];
+      setCandidates(mockData);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const uploadCandidateData = (file) => {
+    return new Promise((resolve, reject) => {
+      setIsLoading(true);
+      const reader = new FileReader();
+
+      reader.onload = (e) => {
+        try {
+          const data = new Uint8Array(e.target.result);
+          const workbook = XLSX.read(data, { type: 'array' });
+          const firstSheet = workbook.Sheets[workbook.SheetNames[0]];
+          const jsonData = XLSX.utils.sheet_to_json(firstSheet);
+
+          const newCandidates = jsonData.map((item, index) => ({
+            id: candidates.length + index + 1,
+            name: item['Name'] || item['Candidate Name'] || `Candidate ${index}`,
+            status: item['Status'] || 'screening',
+            score: item['Score'] || 0
+          }));
+
+          setCandidates([...candidates, ...newCandidates]);
+          resolve(newCandidates);
+        } catch (error) {
+          reject(error);
+        } finally {
+          setIsLoading(false);
+        }
+      };
+
+      reader.readAsArrayBuffer(file);
+    });
+  };
+
+  return (
+    <DataContext.Provider
+      value={{
+        candidates,
+        isLoading,
+        uploadCandidateData,
+        refreshData: fetchInitialData
+      }}
+    >
+      {children}
+    </DataContext.Provider>
+  );
+};
+
+
+
+### C:\Users\ADMIN\employee-assessment-portal\src\Data\AssessmentData.js
+const assessments = [
+    { id: 1, name: 'Technical Skills Evaluation', category: 'Technical' },
+    { id: 2, name: 'Communication Assessment', category: 'Soft Skills' },
+    { id: 3, name: 'Time Management Test', category: 'Soft Skills' },
+    { id: 4, name: 'Leadership Qualities Test', category: 'Leadership' }
+  ];
+
+export default assessments;
+  
+
+
+### C:\Users\ADMIN\employee-assessment-portal\src\Data\db.json
+{
+    "employees": [
+      { "id": 1, "name": "John Doe", "department": "Engineering", "position": "Developer" },
+      { "id": 2, "name": "Jane Smith", "department": "HR", "position": "Manager" },
+      { "id": 3, "name": "Alice Johnson", "department": "Engineering", "position": "Designer" },
+      { "id": 4, "name": "Bob Brown", "department": "Finance", "position": "Analyst" },
+      { "id": 5, "name": "Charlie Lee", "department": "Marketing", "position": "Manager" }
+    ],
+    "assessments": [
+      { "id": 1, "name": "Technical Skills Evaluation", "category": "Technical" },
+      { "id": 2, "name": "Communication Assessment", "category": "Soft Skills" },
+      { "id": 3, "name": "Time Management Test", "category": "Soft Skills" },
+      { "id": 4, "name": "Leadership Qualities Test", "category": "Leadership" }
+    ]
+  }
+  
+
+
+### C:\Users\ADMIN\employee-assessment-portal\src\Data\EmployeeData.js
+const employees = [
+    { id: 1, name: 'John Doe', department: 'Engineering', position: 'Developer' },
+    { id: 2, name: 'Jane Smith', department: 'HR', position: 'Manager' },
+    { id: 3, name: 'Alice Johnson', department: 'Engineering', position: 'Designer' },
+    { id: 4, name: 'Bob Brown', department: 'Finance', position: 'Analyst' },
+    { id: 5, name: 'Charlie Lee', department: 'Marketing', position: 'Manager' },
+  ];
+  export default employees;
+
+
+### C:\Users\ADMIN\employee-assessment-portal\src\layouts\AdminLayout.jsx
+import { Box, CssBaseline } from '@mui/material';
+import { Outlet } from 'react-router-dom';
+import AdminNavbar from '../components/shared/AdminNavbar';
+import AdminSidebar from '../components/shared/AdminSidebar';
+
+export default function AdminLayout() {  
+  return (
+    <Box sx={{ display: 'flex' }}>
+      <CssBaseline />
+      <AdminNavbar />
+      <AdminSidebar />
+      <Box 
+        component="main"
+        sx={{ 
+          flexGrow: 1,
+          p: 3,
+          marginTop: '64px', 
+          width: 'calc(100% - 240px)' 
+        }}
+      >
+        <Outlet /> 
+      </Box>
+    </Box>
+  );
+}
+
+
+### C:\Users\ADMIN\employee-assessment-portal\src\pages\admin\AssessmentDashboard.jsx
+
+
+
+### C:\Users\ADMIN\employee-assessment-portal\src\pages\admin\Assessments.jsx
+import AssessmentAssignment from '../../components/admin/AssessmentAssignment';
+
+export default function Assessments() {
+  return <AssessmentAssignment />;
+}
+
+
+### C:\Users\ADMIN\employee-assessment-portal\src\pages\admin\Dashboard.jsx
+import { useContext, useState } from 'react';
+import { DataContext } from '../../Contexts/DataContext';
+import {
+  Box,
+  Typography,
+  IconButton,
+  Dialog,
+  DialogContent,
+  Toolbar,
+  AppBar,
+  Tabs,
+  Tab,
+  useTheme,
+  useMediaQuery
+} from '@mui/material';
+import {
+  People,
+  Schedule,
+  HowToReg,
+  PersonAddDisabled,
+  Close,
+  Fullscreen,
+  FullscreenExit,
+  PieChart,
+  DonutLarge,
+  ShowChart
+} from '@mui/icons-material';
+import { motion } from 'framer-motion';
+import MetricCard from '../../components/admin/MetricCard';
+import CustomRadialBarChart from '../../components/admin/RadialBarChart';
+import CustomPieChart from '../../components/admin/PieChart';
+import CustomBarChart from '../../components/admin/BarChart';
+import CustomDonutChart from '../../components/admin/DonutChart';
+
+const MotionBox = motion(Box);
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 40 },
+  visible: (i = 1) => ({
+    opacity: 1,
+    y: 0,
+    transition: { delay: i * 0.15, duration: 0.5, ease: 'easeOut' }
+  })
+};
+
+const scaleFade = {
+  hidden: { opacity: 0, scale: 0.9 },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    transition: { duration: 0.5, ease: 'easeOut' }
+  }
+};
+
+export default function Dashboard() {
+  // Safely extract context data with defaults
+  const { employees = [], assessments = [], candidates = [] } = useContext(DataContext) || {};
+
+  const [fullScreenChart, setFullScreenChart] = useState(null);
+  const [activeTab, setActiveTab] = useState(0);
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('md'));
+
+  // Metrics calculations
+  const ongoingAssessments = assessments.filter(a => a.status === 'in_progress').length;
+  const completedCount = assessments.filter(a => a.status === 'completed').length;
+  const pendingCount = assessments.filter(a => a.status === 'pending_review').length;
+  const scheduledInterviews = candidates.filter(c => ['screening', 'technical', 'hr'].includes(c.status)).length;
+  const approvedCandidates = candidates.filter(c => c.status === 'offer').length;
+  const rejectedCandidates = candidates.filter(c => c.status === 'rejected').length;
+
+  // Chart data arrays
+  const interviewStatusData = [
+    { name: 'Applied', value: candidates.filter(c => c.status === 'applied').length },
+    { name: 'Screening', value: candidates.filter(c => c.status === 'screening').length },
+    { name: 'Technical', value: candidates.filter(c => c.status === 'technical').length },
+    { name: 'HR Round', value: candidates.filter(c => c.status === 'hr').length },
+    { name: 'Offer', value: approvedCandidates },
+    { name: 'Rejected', value: rejectedCandidates }
+  ];
+
+  const assessmentScores = assessments.map(a => ({ name: a.type, score: a.score, status: a.status }));
+
+  const candidateScores = candidates
+    .filter(c => c.score > 0)
+    .map(c => ({ name: c.name, score: c.score, status: c.status }));
+
+  const statusDistribution = [
+    { name: 'Completed', value: completedCount },
+    { name: 'In Progress', value: ongoingAssessments },
+    { name: 'Pending', value: pendingCount }
+  ];
+
+  const cards = [
+    { icon: <People sx={{ color: '#6366f1' }} />, title: 'Total Employees', value: employees.length, trend: '+5%' },
+    { icon: <Schedule sx={{ color: '#f59e0b' }} />, title: 'Scheduled Interviews', value: scheduledInterviews, trend: '+8%' },
+    { icon: <HowToReg sx={{ color: '#3b82f6' }} />, title: 'Approved Candidates', value: approvedCandidates, trend: '↑ 2' },
+    { icon: <PersonAddDisabled sx={{ color: '#ef4444' }} />, title: 'Rejected Candidates', value: rejectedCandidates, trend: '↓ 1' }
+  ];
+
+  const handleFullScreen = (chartType) => setFullScreenChart(chartType);
+  const handleCloseFullScreen = () => setFullScreenChart(null);
+  const handleTabChange = (e, v) => setActiveTab(v);
+
+  // Renders selected full-screen chart
+  const renderFullScreenChart = () => {
+    switch (fullScreenChart) {
+      case 'radial':
+        return <CustomRadialBarChart data={
+          [
+            { name: 'Technical', value: 65, fill: '#6366f1' },
+            { name: 'Communication', value: 82, fill: '#10b981' },
+            { name: 'Leadership', value: 45, fill: '#3b82f6' }
+          ]
+        } height={window.innerHeight - 150} />;
+      case 'pie':
+        return <CustomPieChart data={interviewStatusData} colors={[ '#6366f1','#f59e0b','#ef4444','#3b82f6','#10b981','#94a3b8' ]} height={window.innerHeight - 150} withTooltip legend />;
+      case 'donut':
+        return <CustomDonutChart data={statusDistribution} colors={[ '#10b981','#3b82f6','#f59e0b' ]} height={window.innerHeight - 150} />;
+      case 'bar':
+        return <CustomBarChart data={activeTab === 1 ? assessmentScores : candidateScores} xKey="name" yKey="score" height={window.innerHeight - 150} />;
+      default:
+        return null;
+    }
+  };
+
+  return (
+    <Box sx={{ px: { xs:2, md:4 }, py:4 }}>
+      {/* Metric Cards */}
+      <Box sx={{ display:'grid', gridTemplateColumns:'repeat(auto-fit,minmax(240px,1fr))', gap:3, mb:4 }}>
+        {cards.map((m,i) => (
+          <MotionBox key={m.title} custom={i} variants={fadeUp} initial="hidden" animate="visible" whileHover={{scale:1.04}} whileTap={{scale:0.98}} transition={{type:'spring', stiffness:300}}>
+            <MetricCard icon={m.icon} title={m.title} value={m.value} trend={m.trend} />
+          </MotionBox>
+        ))}
+      </Box>
+
+      {/* Tabs */}
+      <Tabs value={activeTab} onChange={handleTabChange} variant="scrollable" scrollButtons="auto" sx={{ mb:3 }}>
+        <Tab label="Overview" icon={<PieChart />} />
+        <Tab label="Candidates" icon={<DonutLarge />} />
+        <Tab label="Performance" icon={<ShowChart />} />
+      </Tabs>
+
+      {/* Overview Charts */}
+      {activeTab === 0 && (
+        <Box sx={{ display:'grid', gridTemplateColumns:{xs:'1fr',md:'1fr 1fr'}, gap:4, mb:4 }}>
+          <MotionBox variants={scaleFade} initial="hidden" animate="visible" whileHover={{scale:1.02}} sx={{ p:3, borderRadius:4, bgcolor:'background.paper', boxShadow:4, position:'relative' }}>
+            <Box sx={{ display:'flex', justifyContent:'space-between', alignItems:'center', mb:2 }}>
+              <Typography variant="h6">Assessment Progress</Typography>
+              <IconButton onClick={() => handleFullScreen('radial')}><Fullscreen /></IconButton>
+            </Box>
+            <CustomRadialBarChart data={[ {name:'Technical',value:65,fill:'#6366f1'},{name:'Communication',value:82,fill:'#10b981'},{name:'Leadership',value:45,fill:'#3b82f6'} ]} height={300} />
+          </MotionBox>
+
+          <MotionBox variants={scaleFade} initial="hidden" animate="visible" whileHover={{scale:1.02}} sx={{ p:3, borderRadius:4, bgcolor:'background.paper', boxShadow:4, position:'relative' }}>
+            <Box sx={{ display:'flex', justifyContent:'space-between', alignItems:'center', mb:2 }}>
+              <Typography variant="h6">Interview Pipeline</Typography>
+              <IconButton onClick={() => handleFullScreen('pie')}><Fullscreen /></IconButton>
+            </Box>
+            <CustomPieChart data={interviewStatusData} colors={[ '#6366f1','#f59e0b','#ef4444','#3b82f6','#10b981','#94a3b8' ]} height={300} withTooltip legend />
+          </MotionBox>
+        </Box>
+      )}
+
+      {/* Candidates Chart */}
+      {activeTab === 1 && (
+        <Box sx={{ mb:4 }}>
+          <MotionBox variants={scaleFade} initial="hidden" animate="visible" whileHover={{scale:1.02}} sx={{ p:3, borderRadius:4, bgcolor:'background.paper', boxShadow:4, position:'relative', height:400 }}>
+            <Box sx={{ display:'flex', justifyContent:'space-between', alignItems:'center', mb:2 }}>
+              <Typography variant="h6">Assessment Scores</Typography>
+              <IconButton onClick={() => handleFullScreen('bar')}><Fullscreen /></IconButton>
+            </Box>
+            <CustomBarChart data={assessmentScores} xKey="name" yKey="score" height={350} />
+          </MotionBox>
+        </Box>
+      )}
+
+      {/* Performance Charts */}
+      {activeTab === 2 && (
+        <Box sx={{ display:'grid', gridTemplateColumns:{xs:'1fr',md:'1fr 1fr'}, gap:4, mb:4 }}>
+          <MotionBox variants={scaleFade} initial="hidden" animate="visible" whileHover={{scale:1.02}} sx={{ p:3, borderRadius:4, bgcolor:'background.paper', boxShadow:4, position:'relative' }}>
+            <Box sx={{ display:'flex', justifyContent:'space-between', alignItems:'center', mb:2 }}>
+              <Typography variant="h6">Completion Status</Typography>
+              <IconButton onClick={() => handleFullScreen('donut')}><Fullscreen /></IconButton>
+            </Box>
+            <CustomDonutChart data={statusDistribution} colors={[ '#10b981','#3b82f6','#f59e0b' ]} height={300} />
+          </MotionBox>
+
+          <MotionBox variants={scaleFade} initial="hidden" animate="visible" whileHover={{scale:1.02}} sx={{ p:3, borderRadius:4, bgcolor:'background.paper', boxShadow:4, position:'relative' }}>
+            <Box sx={{ display:'flex', justifyContent:'space-between', alignItems:'center', mb:2 }}>
+              <Typography variant="h6">Candidate Scores</Typography>
+              <IconButton onClick={() => handleFullScreen('bar')}><Fullscreen /></IconButton>
+            </Box>
+            <CustomBarChart data={candidateScores} xKey="name" yKey="score" height={300} />
+          </MotionBox>
+        </Box>
+      )}
+
+      {/* Full-Screen Dialog */}
+      <Dialog fullScreen open={Boolean(fullScreenChart)} onClose={handleCloseFullScreen}>
+        <AppBar sx={{ position:'relative' }}>
+          <Toolbar>
+            <IconButton edge="start" color="inherit" onClick={handleCloseFullScreen} aria-label="close"><Close /></IconButton>
+            <Typography sx={{ ml:2, flex:1 }} variant="h6">
+              {fullScreenChart === 'radial' ? 'Assessment Progress' : fullScreenChart === 'pie' ? 'Interview Pipeline' : fullScreenChart === 'donut' ? 'Completion Status' : 'Assessment Scores'}
+            </Typography>
+            <IconButton edge="end" color="inherit" onClick={handleCloseFullScreen} aria-label="exit fullscreen"><FullscreenExit /></IconButton>
+          </Toolbar>
+        </AppBar>
+        <DialogContent>{renderFullScreenChart()}</DialogContent>
+      </Dialog>
+    </Box>
+  );
+}
+
+
+
+### C:\Users\ADMIN\employee-assessment-portal\src\pages\admin\InterviewManagement.jsx
+import React, { useState, useRef, useEffect } from 'react';
+import { motion } from 'framer-motion';
+import {
+  Box,
+  AppBar,
+  Toolbar,
+  Typography,
+  IconButton,
+  Button,
+  CircularProgress,
+  Alert
+} from '@mui/material';
+import { FiUploadCloud, FiPieChart, FiMinimize2, FiMaximize2 } from 'react-icons/fi';
+import * as XLSX from 'xlsx';
+import Papa from 'papaparse';
+import useAssessmentStore from '../../store/InterviewStore';
+import DataTable from '../../components/admin/InterviewTable';
+import ChartView from '../../components/admin/ChartView';
+import '../../Styles/InterviewManagement.css';
+
+export default function InterviewManagement() {
+  const fileInputRef = useRef(null);
+  const [fullscreen, setFullscreen] = useState(false);
+  const [dragActive, setDragActive] = useState(false);
+
+  const {
+    data,
+    headers,
+    loading: isLoading,
+    error,
+    hasData,
+    showCharts,
+    setData,
+    setHeaders,
+    setLoading,
+    setError,
+    setHasData,
+    toggleView
+  } = useAssessmentStore();
+
+  const handleDrag = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    if (e.type === 'dragenter' || e.type === 'dragover') {
+      setDragActive(true);
+    } else if (e.type === 'dragleave') {
+      setDragActive(false);
+    }
+  };
+
+  const handleDrop = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setDragActive(false);
+    if (e.dataTransfer.files && e.dataTransfer.files[0]) {
+      handleFileUpload({ target: { files: e.dataTransfer.files } });
+    }
+  };
+
+  const triggerFileInput = () => fileInputRef.current.click();
+
+  const handleFileUpload = (e) => {
+    const file = e.target.files?.[0] || e.dataTransfer.files?.[0];
+    if (!file) return;
+    
+    setLoading(true);
+    setError(null);
+    setHasData(false);
+    if (e.target.files) e.target.value = null;
+
+    const reader = new FileReader();
+    const fileExtension = file.name.split('.').pop().toLowerCase();
+
+    if (fileExtension === 'csv') {
+      reader.onload = (event) => {
+        try {
+          Papa.parse(event.target.result, {
+            header: true,
+            complete: (results) => {
+              const filteredData = results.data.filter(row => 
+                Object.values(row).some(val => val !== undefined && val !== null && val !== '')
+              );
+              
+              if (filteredData.length === 0) {
+                throw new Error('CSV file is empty or contains no valid data');
+              }
+
+              const cleanedData = filteredData.map(row => {
+                const cleanedRow = {};
+                Object.keys(row).forEach(key => {
+                  const value = row[key];
+                  cleanedRow[key.trim()] = typeof value === 'string' ? value.trim() : value;
+                });
+                return cleanedRow;
+              });
+
+              setHeaders(Object.keys(cleanedData[0]));
+              setData(cleanedData);
+              setHasData(true);
+              setLoading(false);
+            },
+            error: (error) => {
+              throw new Error(`CSV parsing error: ${error.message}`);
+            }
+          });
+        } catch (err) {
+          setError(err.message);
+          setLoading(false);
+        }
+      };
+      reader.readAsText(file);
+    } 
+    else if (fileExtension === 'xlsx' || fileExtension === 'xls') {
+      reader.onload = (event) => {
+        try {
+          const data = new Uint8Array(event.target.result);
+          const workbook = XLSX.read(data, { type: 'array' });
+          const firstSheetName = workbook.SheetNames[0];
+          const worksheet = workbook.Sheets[firstSheetName];
+          const jsonData = XLSX.utils.sheet_to_json(worksheet, { defval: '' });
+
+          if (jsonData.length === 0) {
+            throw new Error('Excel file is empty or contains no valid data');
+          }
+
+          const headers = Object.keys(jsonData[0]);
+          const cleanedData = jsonData.map(row => {
+            const cleanedRow = {};
+            headers.forEach(header => {
+              let value = row[header];
+              if (value instanceof Date) {
+                value = value.toISOString().split('T')[0];
+              } else if (typeof value === 'string') {
+                value = value.trim();
+                if (!isNaN(value) && value !== '') {
+                  value = parseFloat(value);
+                }
+              }
+              cleanedRow[header.trim()] = value;
+            });
+            return cleanedRow;
+          });
+
+          setHeaders(headers);
+          setData(cleanedData);
+          setHasData(true);
+          setLoading(false);
+        } catch (err) {
+          setError(err.message);
+          setLoading(false);
+        }
+      };
+      reader.readAsArrayBuffer(file);
+    } 
+    else {
+      setError('Unsupported file format. Please upload a CSV or Excel file.');
+      setLoading(false);
+    }
+  };
+
+  const toggleFullscreen = () => setFullscreen(f => !f);
+
+  return (
+    <Box className={`interview-management ${fullscreen ? 'fullscreen' : ''}`}>
+      {fullscreen && (
+        <AppBar className="fullscreen-header">
+          <Toolbar>
+            <Typography variant="h6" className="header-title">
+              Assessment Analytics
+            </Typography>
+            <IconButton onClick={toggleFullscreen} className="fullscreen-toggle">
+              <FiMinimize2 />
+            </IconButton>
+          </Toolbar>
+        </AppBar>
+      )}
+
+      {!hasData ? (
+        <motion.div 
+          className={`upload-container ${dragActive ? 'drag-active' : ''}`}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          onClick={triggerFileInput}
+          onDragEnter={handleDrag}
+          onDragLeave={handleDrag}
+          onDragOver={handleDrag}
+          onDrop={handleDrop}
+        >
+          <input 
+            ref={fileInputRef} 
+            type="file" 
+            accept=".csv,.xlsx,.xls" 
+            onChange={handleFileUpload} 
+            className="file-input"
+          />
+          <motion.div 
+            animate={{ y: [0, -5, 0] }} 
+            transition={{ repeat: Infinity, duration: 2 }}
+            className="upload-icon"
+          >
+            <FiUploadCloud size={48} />
+          </motion.div>
+          <Typography variant="h5" className="upload-title">
+            Upload Interview Data
+          </Typography>
+          <Typography className="upload-subtitle">
+            {dragActive ? 'Drop your file here' : 'Click or drag files to upload'}
+          </Typography>
+          {isLoading && <CircularProgress className="upload-progress" />}
+          {error && (
+            <Alert severity="error" className="upload-error">
+              {error}
+            </Alert>
+          )}
+        </motion.div>
+      ) : (
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="content-container"
+        >
+          {!fullscreen && (
+            <Box className="action-bar">
+              <IconButton onClick={toggleFullscreen} className="fullscreen-button">
+                <FiMaximize2 />
+              </IconButton>
+            </Box>
+          )}
+          
+          {showCharts ? (
+            <ChartView 
+              data={data} 
+              onToggleView={toggleView} 
+              fullscreen={fullscreen} 
+            />
+          ) : (
+            <DataTable />
+          )}
+        </motion.div>
+      )}
+    </Box>
+  );
+}
+
+
+### C:\Users\ADMIN\employee-assessment-portal\src\store\InterviewStore.jsx
+import { create } from 'zustand';
+
+const useAssessmentStore = create((set) => ({
+  data: [],
+  headers: [],
+  loading: false,
+  error: null,
+  hasData: false,
+  showCharts: false,
+
+
+  setData: (newData) => set({ data: newData }),
+  setHeaders: (newHeaders) => set({ headers: newHeaders }),
+  setLoading: (loading) => set({ loading }),
+  setError: (error) => set({ error }),
+  setHasData: (hasData) => set({ hasData }),
+  clearData: () => set({ data: [], headers: [], hasData: false, showCharts: false }),
+  toggleView: () => set((state) => ({ showCharts: !state.showCharts })),
+}));
+
+export default useAssessmentStore;
+
+
+
+### C:\Users\ADMIN\employee-assessment-portal\src\Styles\ChartView.css
+.chart-view-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: #f8fafc;
+  padding: 1rem;
+}
+
+.chart-view-container.fullscreen {
+  padding: 0;
+}
+
+.chart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.chart-avatar {
+  background-color: #6c63ff;
+  color: white;
+}
+
+.chart-title {
+  font-weight: 600;
+  color: #1e293b;
+}
+
+.header-actions {
+  display: flex;
+  gap: 1rem;
+}
+
+.chart-paper {
+  flex: 1;
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  background-color: white;
+}
+
+.chart-wrapper {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.5s ease;
+}
+
+.chart-item {
+  min-width: 100%;
+  height: 100%;
+  padding: 1.5rem;
+}
+
+.nav-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  color: #6c63ff;
+}
+
+.nav-button.prev {
+  left: 1rem;
+}
+
+.nav-button.next {
+  right: 1rem;
+}
+
+.chart-indicators {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.indicator {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  border-radius: 50%;
+  cursor: pointer;
+  color: #94a3b8;
+  transition: all 0.3s ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.indicator:hover {
+  color: #6c63ff;
+  transform: translateY(-2px);
+}
+
+.indicator.active {
+  background-color: #6c63ff;
+  color: white;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .chart-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .header-actions {
+    width: 100%;
+    justify-content: flex-end;
+  }
+  
+  .chart-item {
+    padding: 1rem;
+  }
+  
+  .nav-button {
+    width: 36px;
+    height: 36px;
+  }
+  
+  .indicator {
+    width: 32px;
+    height: 32px;
+    font-size: 0.875rem;
+  }
+}
+
+
+### C:\Users\ADMIN\employee-assessment-portal\src\Styles\InterviewManagement.css
+.interview-management {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: #f8fafc;
+  position: relative;
+}
+
+.interview-management.fullscreen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 9999;
+  background-color: white;
+}
+
+.fullscreen-header {
+  background-color: #6c63ff !important;
+}
+
+.fullscreen-header .header-title {
+  flex-grow: 1;
+  color: white;
+  font-weight: 600;
+}
+
+.fullscreen-toggle {
+  color: white;
+}
+
+.upload-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  border: 2px dashed #cbd5e1;
+  border-radius: 1rem;
+  background-color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  height: 60vh;
+  max-width: 800px;
+  margin: 2rem auto;
+  text-align: center;
+}
+
+.upload-container.drag-active {
+  border-color: #6c63ff;
+  background-color: #f5f3ff;
+}
+
+.upload-container:hover:not(.drag-active) {
+  border-color: #94a3b8;
+}
+
+.file-input {
+  display: none;
+}
+
+.upload-icon {
+  margin-bottom: 1.5rem;
+  color: #6c63ff;
+}
+
+.upload-title {
+  font-weight: 600;
+  color: #1e293b;
+  margin-bottom: 0.5rem;
+}
+
+.upload-subtitle {
+  color: #64748b;
+  margin-bottom: 1.5rem;
+}
+
+.upload-progress {
+  margin-top: 1rem;
+  color: #6c63ff;
+}
+
+.upload-error {
+  margin-top: 1.5rem;
+  width: 100%;
+  max-width: 400px;
+}
+
+.content-container {
+  width: 100%;
+  height: 100%;
+  padding: 1rem;
+}
+
+.action-bar {
+  display: flex;
+  justify-content: flex-end;
+  padding: 0.5rem 1rem;
+}
+
+.fullscreen-button {
+  color: #6c63ff;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .upload-container {
+    height: 50vh;
+    margin: 1rem;
+    padding: 1.5rem;
+  }
+  
+  .upload-title {
+    font-size: 1.5rem;
+  }
+}
+
+
+### C:\Users\ADMIN\employee-assessment-portal\src\Styles\InterviewTable.css
+.interview-table-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  background-color: #f8fafc;
+}
+
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.table-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.table-title {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.table-title-avatar {
+  background-color: #6c63ff;
+  color: white;
+}
+
+.table-title-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.action-button {
+  background-color: #6c63ff;
+  color: white;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+}
+
+.action-button:hover {
+  background-color: #6c63ff;
+  color: white;
+}
+
+.filter-controls {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.search-field {
+  background-color: white;
+}
+
+.filter-select {
+  background-color: white;
+}
+
+.score-filter {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  min-width: 180px;
+  padding: 0 0.5rem;
+}
+
+.clear-filters-button {
+  margin-left: auto;
+}
+
+.table-wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.table-header-cell {
+  background-color: #f1f5f9;
+  font-weight: 600;
+  color: #334155;
+  white-space: nowrap;
+}
+
+.table-body-cell {
+  color: #475569;
+  font-size: 0.875rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 200px;
+}
+
+.table-row:hover {
+  background-color: #f8fafc !important;
+}
+
+.pagination {
+  border-top: 1px solid #e2e8f0;
+  background-color: white;
+}
+
+@media (max-width: 768px) {
+  .table-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .action-buttons {
+    width: 100%;
+    justify-content: flex-end;
+  }
+  
+  .filter-controls {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+  
+  .search-field, .filter-select, .score-filter {
+    width: 100%;
+  }
+  
+  .clear-filters-button {
+    margin-left: 0;
+    width: 100%;
+  }
+  
+  .table-body-cell {
+    max-width: 120px;
+  }
+}
+
+
+### C:\Users\ADMIN\employee-assessment-portal\src\Styles\ScoreChart.css
+/* ScoreChart.css */
+
+.score-chart-container {
+  margin: 2rem auto;
+  padding: 0;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+  max-width: 1100px;
+}
+
+.chart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.chart-title {
+  font-weight: 600;
+  color: #1e3a8a;
+}
+
+.chart-wrapper {
+  width: 100%;
+  height: 500px;
+  margin-top: 1rem;
+}
+
+.stats-container {
+  display: flex;
+  justify-content: space-around;
+  gap: 1rem;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+}
+
+.stat-box {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  background-color: #f0f9ff;
+  border-radius: 12px;
+  padding: 1rem 1.5rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
+  transition: transform 0.2s ease;
+  min-width: 240px;
+}
+
+.stat-box:hover {
+  transform: translateY(-4px);
+}
+
+.stat-icon {
+  color: white;
+  font-size: 1.2rem;
+}
+
+.custom-tooltip {
+  background: #ffffff;
+  padding: 0.8rem 1rem;
+  border: 1px solid #dbeafe;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.custom-tooltip p,
+.custom-tooltip h4,
+.custom-tooltip span {
+  margin: 0.3rem 0;
+  color: #1e3a8a;
+}
+
+.no-data-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 300px;
+  text-align: center;
+  color: #94a3b8;
+}
+
+
+
+### C:\Users\ADMIN\employee-assessment-portal\src\utils\excelParser.js
+import * as XLSX from 'xlsx';
+
+export const parseExcelFile = (file) => {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    
+    reader.onload = (e) => {
+      try {
+        const data = new Uint8Array(e.target.result);
+        const workbook = XLSX.read(data, { type: 'array' });
+        const sheetName = workbook.SheetNames[0];
+        const worksheet = workbook.Sheets[sheetName];
+        const jsonData = XLSX.utils.sheet_to_json(worksheet);
+        resolve(jsonData);
+      } catch (error) {
+        reject(error);
+      }
+    };
+    
+    reader.onerror = (error) => reject(error);
+    reader.readAsArrayBuffer(file);
+  });
+};
+
+
+### C:\Users\ADMIN\employee-assessment-portal\src\utils\interviewStages.jsx
+import {
+    Description as DescriptionIcon,
+    FilterAlt as FilterAltIcon,
+    Code as CodeIcon,
+    People as PeopleIcon,
+    CheckCircle as CheckCircleIcon,
+    Cancel as CancelIcon,
+  } from '@mui/icons-material';
+  
+  export const INTERVIEW_STAGES = {
+    applied: {
+      label: 'Applied',
+      color: 'default',
+      icon: <DescriptionIcon />
+    },
+    screening: {
+      label: 'Screening',
+      color: 'info',
+      icon: <FilterAltIcon />
+    },
+    technical: {
+      label: 'Technical',
+      color: 'warning',
+      icon: <CodeIcon />
+    },
+    hr: {
+      label: 'HR Round',
+      color: 'primary',
+      icon: <PeopleIcon />
+    },
+    offer: {
+      label: 'Offer',
+      color: 'success',
+      icon: <CheckCircleIcon />
+    },
+    rejected: {
+      label: 'Rejected',
+      color: 'error',
+      icon: <CancelIcon />
+    }
+  };
+
+

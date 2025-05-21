@@ -196,6 +196,7 @@ export default function InterviewTable() {
               sx={{
                 backgroundColor: 'primary.main',
                 color: 'white',
+                borderRadius: '50%',
                 '&:hover': {
                   backgroundColor: 'primary.dark',
                 }
@@ -204,12 +205,13 @@ export default function InterviewTable() {
               <FiDownload size={18} />
             </IconButton>
           </Tooltip>
-          <Tooltip title="Toggle View">
+          <Tooltip title="Chart View">
             <IconButton 
               onClick={toggleView}
               sx={{
                 backgroundColor: 'primary.main',
                 color: 'white',
+                borderRadius: '50%',
                 '&:hover': {
                   backgroundColor: 'primary.dark',
                 }
@@ -320,7 +322,7 @@ export default function InterviewTable() {
               size="small"
               variant="outlined"
               value={projectFilter}
-              onChange={e => { setProjectFilter(e.target.value); setPage(0); }}
+              onChange={e => { setProjectFilter(e.target.value); setPage(0);}}
               sx={{
                 minWidth: 200,
                 '& .MuiSelect-select': {

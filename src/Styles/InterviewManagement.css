@@ -1,10 +1,16 @@
 .interview-management {
   width: 100%;
-  height: 100%;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   background-color: #f8fafc;
   position: relative;
+  padding: 1.5rem 0;
+}
+
+.page-header {
+  background-image: linear-gradient(135deg, #f8f9fe 0%, #eef1fd 100%);
+  border-bottom: 1px solid rgba(108, 99, 255, 0.1);
 }
 
 .interview-management.fullscreen {
@@ -19,16 +25,23 @@
 
 .fullscreen-header {
   background-color: #6c63ff !important;
+  box-shadow: 0 4px 20px rgba(108, 99, 255, 0.15);
 }
 
 .fullscreen-header .header-title {
   flex-grow: 1;
   color: white;
   font-weight: 600;
+  letter-spacing: 0.5px;
 }
 
 .fullscreen-toggle {
   color: white;
+  transition: transform 0.3s ease;
+}
+
+.fullscreen-toggle:hover {
+  transform: scale(1.1);
 }
 
 .upload-container {
@@ -36,68 +49,146 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 2rem;
-  border: 2px dashed #cbd5e1;
+  padding: 3rem 2rem;
   border-radius: 1rem;
   background-color: white;
   cursor: pointer;
   transition: all 0.3s ease;
-  height: 60vh;
-  max-width: 800px;
-  margin: 2rem auto;
-  text-align: center;
+  height: 65vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.upload-container:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #6c63ff, #8c84ff);
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
 
 .upload-container.drag-active {
-  border-color: #6c63ff;
-  background-color: #f5f3ff;
+  box-shadow: 0 0 0 2px rgba(108, 99, 255, 0.3);
+  background-color: #f9f8ff;
+}
+
+.upload-container.drag-active:before {
+  opacity: 1;
 }
 
 .upload-container:hover:not(.drag-active) {
-  border-color: #94a3b8;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
 }
 
 .file-input {
   display: none;
 }
 
-.upload-icon {
+.upload-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 500px;
+  text-align: center;
+}
+
+.upload-icon-container {
   margin-bottom: 1.5rem;
+  padding: 1.5rem;
+  border-radius: 50%;
+  background-color: rgba(108, 99, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.upload-icon {
   color: #6c63ff;
 }
 
 .upload-title {
-  font-weight: 600;
+  font-weight: 700;
   color: #1e293b;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.75rem;
+  letter-spacing: -0.5px;
 }
 
 .upload-subtitle {
   color: #64748b;
   margin-bottom: 1.5rem;
+  font-size: 1.1rem;
+}
+
+.file-format-info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.25rem;
+  background-color: #f8fafc;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+}
+
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 2rem;
 }
 
 .upload-progress {
-  margin-top: 1rem;
   color: #6c63ff;
 }
 
 .upload-error {
-  margin-top: 1.5rem;
+  margin: 0 auto;
   width: 100%;
-  max-width: 400px;
+  max-width: 600px;
+}
+
+.upload-features {
+  display: flex;
+  justify-content: center;
+  padding: 1.5rem;
+  background-color: #fafbff;
+}
+
+.feature-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 2rem;
+  color: #6c63ff;
+}
+
+.feature-item svg {
+  margin-bottom: 0.5rem;
 }
 
 .content-container {
   width: 100%;
   height: 100%;
   padding: 1rem;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
 }
 
 .action-bar {
   display: flex;
-  justify-content: flex-end;
-  padding: 0.5rem 1rem;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background-color: white;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
 }
 
 .fullscreen-button {
@@ -106,13 +197,29 @@
 
 /* Responsive styles */
 @media (max-width: 768px) {
+  .interview-management {
+    padding: 1rem 0;
+  }
+  
   .upload-container {
-    height: 50vh;
-    margin: 1rem;
-    padding: 1.5rem;
+    height: 55vh;
+    padding: 2rem 1.5rem;
   }
   
   .upload-title {
-    font-size: 1.5rem;
+    font-size: 1.75rem;
+  }
+  
+  .upload-subtitle {
+    font-size: 1rem;
+  }
+  
+  .upload-features {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .feature-item {
+    margin: 0.75rem 0;
   }
 }

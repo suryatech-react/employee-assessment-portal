@@ -8,7 +8,8 @@ import {
   IconButton,
   Tooltip,
   useTheme,
-  Fade
+  Fade,
+  CircularProgress
 } from '@mui/material';
 import {
   FiDownload,
@@ -20,12 +21,14 @@ import {
 } from 'react-icons/fi';
 import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
+import { toast } from 'react-toastify'; 
 import ScoreChart from '../Charts/ScoreChart';
 import SelfInterestChart from '../Charts/SelfInterestChart';
 
 const ChartView = ({ data, onToggleView }) => {
   const theme = useTheme();
   const [currentChart, setCurrentChart] = useState(0);
+  const [exporting, setExporting] = useState(false);
   const chartWrapperRef = useRef(null);
 
   const charts = [
@@ -46,23 +49,198 @@ const ChartView = ({ data, onToggleView }) => {
   }, [data]);
 
   const handleDownloadPDF = async () => {
+    setExporting(true);
+    
+
+    const loadingToast = toast ? toast.info('Preparing PDF export...', { autoClose: false }) : null;
+    
     try {
+  
       const element = document.getElementById(`chart-${currentChart}`);
+      if (!element) {
+        throw new Error('Chart element not found');
+      }
+      
+      const originalBackground = element.style.background;
+      const styledElements = [];
+      
+      if (theme.palette.mode === 'dark') {
+    
+        element.style.background = '#ffffff';
+        
+
+        const textElements = element.querySelectorAll('text, .recharts-text, .recharts-cartesian-axis-tick-value');
+        textElements.forEach(el => {
+          styledElements.push({
+            element: el,
+            originalFill: el.getAttribute('fill') || '',
+            originalColor: el.style.color || ''
+          });
+          el.setAttribute('fill', '#000000');
+          el.style.color = '#000000';
+        });
+        
+        const nonSVGTextElements = element.querySelectorAll('div, span, p');
+        nonSVGTextElements.forEach(el => {
+          if (el.style.color) {
+            styledElements.push({
+              element: el,
+              originalColor: el.style.color
+            });
+            el.style.color = '#000000';
+          }
+        });
+        
+        // Handle any lines, paths or shapes
+        const shapeElements = element.querySelectorAll('path, line, rect, circle');
+        shapeElements.forEach(el => {
+          const stroke = el.getAttribute('stroke');
+          if (stroke && stroke === theme.palette.text.primary) {
+            styledElements.push({
+              element: el,
+              originalStroke: stroke
+            });
+            el.setAttribute('stroke', '#000000');
+          }
+        });
+      }
+      
+      // Higher scale for better resolution
+      const scale = 3;
+      
+      // Use html2canvas with improved settings
       const canvas = await html2canvas(element, {
-        scale: 2,
+        scale: scale,
         useCORS: true,
+        allowTaint: true,
         scrollY: -window.scrollY,
-        scrollX: 0
+        scrollX: 0,
+        logging: false,
+        backgroundColor: '#ffffff',
+        windowWidth: element.scrollWidth,
+        windowHeight: element.scrollHeight
       });
-
+      
+      // Restore original styling after capture
+      if (theme.palette.mode === 'dark') {
+        element.style.background = originalBackground;
+        styledElements.forEach(item => {
+          const { element: el, originalFill, originalColor, originalStroke } = item;
+          if (originalFill) el.setAttribute('fill', originalFill);
+          if (originalColor) el.style.color = originalColor;
+          if (originalStroke) el.setAttribute('stroke', originalStroke);
+        });
+      }
+      
+      // Calculate proper dimensions while maintaining aspect ratio
+      const imgWidth = 210; // A4 width in mm (portrait)
+      const pageHeight = 297; // A4 height in mm
+      const imgHeight = Math.min((canvas.height * imgWidth) / canvas.width, pageHeight - 60); // Ensure it fits on page
+      
+      // Create PDF with proper dimensions
+      const pdf = new jsPDF('portrait', 'mm', 'a4');
+      
+      // Add metadata
+      pdf.setProperties({
+        title: charts[currentChart].title,
+        subject: 'Interview Data Chart',
+        creator: 'Interview Analysis Dashboard',
+        author: 'System'
+      });
+      
+      // Add chart title as text in PDF
+      pdf.setFontSize(16);
+      pdf.setTextColor(0, 0, 0);
+      pdf.text(charts[currentChart].title, 15, 15);
+      
+      // Add timestamp
+      const timestamp = new Date().toLocaleString();
+      pdf.setFontSize(10);
+      pdf.setTextColor(100, 100, 100);
+      pdf.text(`Generated: ${timestamp}`, 15, 22);
+      
+      // Add the chart image
       const imgData = canvas.toDataURL('image/png', 1.0);
-      const pdf = new jsPDF('landscape', 'pt', [canvas.width, canvas.height]);
-
-      const fileName = data?.name || charts[currentChart].title;
-      pdf.addImage(imgData, 'PNG', 0, 0, canvas.width, canvas.height);
-      pdf.save(`${fileName.replace(/\s+/g, '_')}.pdf`);
+      pdf.addImage(imgData, 'PNG', 10, 30, imgWidth - 20, imgHeight);
+      
+      // Add data summary if available
+      if (data && Array.isArray(data) && data.length > 0) {
+        // Add page for data table
+        pdf.addPage();
+        pdf.setFontSize(14);
+        pdf.setTextColor(0, 0, 0);
+        pdf.text('Data Summary', 15, 15);
+        
+        // Format data for table
+        const tableData = data.map(item => {
+          // Extract relevant properties based on your data structure
+          return [
+            item.name || 'N/A', 
+            typeof item.score === 'number' ? item.score.toFixed(2) : 'N/A',
+            item.status || 'N/A'
+          ];
+        });
+        
+        // Add table headers
+        const headers = ['Name', 'Score', 'Status'];
+        
+        // Draw table if autoTable plugin is available
+        if (typeof pdf.autoTable === 'function') {
+          pdf.autoTable({
+            head: [headers],
+            body: tableData,
+            startY: 25,
+            margin: { top: 25 }
+          });
+        } else {
+          // Simplified table without plugin
+          pdf.setFontSize(12);
+          pdf.text(headers.join('          '), 15, 30);
+          pdf.line(15, 32, 195, 32);
+          
+          // Add limited number of rows to avoid overflow
+          const maxRows = Math.min(tableData.length, 20);
+          for (let i = 0; i < maxRows; i++) {
+            pdf.text(tableData[i].join('          '), 15, 40 + (i * 10));
+          }
+          
+          // Add indication if rows were truncated
+          if (tableData.length > maxRows) {
+            pdf.text(`...and ${tableData.length - maxRows} more rows`, 15, 40 + (maxRows * 10));
+          }
+        }
+      }
+      
+      // Get a descriptive filename
+      let fileName;
+      if (data && !Array.isArray(data) && data.name) {
+        fileName = `${data.name.replace(/\s+/g, '_')}_chart`;
+      } else {
+        fileName = `${charts[currentChart].title.replace(/\s+/g, '_')}`;
+      }
+      
+      // Add date to filename
+      fileName = `${fileName}_${new Date().toISOString().split('T')[0]}`;
+      
+      // Save the PDF
+      pdf.save(`${fileName}.pdf`);
+      
+      // Success notification
+      if (toast) {
+        toast.dismiss(loadingToast);
+        toast.success('PDF exported successfully');
+      }
+      
     } catch (error) {
       console.error('Error generating PDF:', error);
+      
+      // Error notification for user
+      if (toast) {
+        toast.dismiss(loadingToast);
+        toast.error('Failed to export PDF. Please try again.');
+      }
+    } finally {
+      setExporting(false);
     }
   };
 
@@ -129,30 +307,6 @@ const ChartView = ({ data, onToggleView }) => {
             }}
           >
             Back to Table
-          </Button>
-
-          <Button
-            variant="contained"
-            startIcon={<FiDownload size={18} />}
-            onClick={handleDownloadPDF}
-            sx={{
-              backgroundColor: theme.palette.primary.main,
-              borderRadius: '8px',
-              textTransform: 'none',
-              fontWeight: 500,
-              px: 3,
-              py: 1,
-              boxShadow: 'none',
-              transition: theme.transitions.create(['background-color', 'box-shadow'], {
-                duration: theme.transitions.duration.short,
-              }),
-              '&:hover': {
-                backgroundColor: theme.palette.primary.dark,
-                boxShadow: theme.shadows[2]
-              }
-            }}
-          >
-            Export Report
           </Button>
         </Box>
       </Box>

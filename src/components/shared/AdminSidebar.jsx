@@ -29,7 +29,6 @@ import {
   ];
   
   const settingsItems = [
-    { text: 'Settings', icon: <Settings />, path: '/admin/settings' },
     { text: 'Logout', icon: <Logout />, path: '/logout' }
   ];
   

@@ -1,13 +1,27 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { motion } from 'framer-motion';
-import {
+import { 
   Box,
   Typography,
   IconButton,
   CircularProgress,
-  Alert
+  Alert,
+  Paper,
+  Container,
+  Divider,
+  useTheme,
+  useMediaQuery,
+  Card,
+  CardContent,
+  Button,
+  Fade
 } from '@mui/material';
-import { FiUploadCloud } from 'react-icons/fi';
+import { 
+  FiUploadCloud, 
+  FiFileText, 
+  FiBarChart2,
+  FiInfo,
+  FiArrowRight
+} from 'react-icons/fi';
 import * as XLSX from 'xlsx';
 import Papa from 'papaparse';
 import useAssessmentStore from '../../store/InterviewStore';
@@ -18,12 +32,15 @@ import '../../Styles/InterviewManagement.css';
 export default function InterviewManagement() {
   const fileInputRef = useRef(null);
   const [dragActive, setDragActive] = useState(false);
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+  const isTablet = useMediaQuery(theme.breakpoints.down('md'));
 
   const {
     data,
     headers,
     loading: isLoading,
-    error,
+    error, 
     hasData,
     showCharts,
     setData,
@@ -155,63 +172,299 @@ export default function InterviewManagement() {
   };
 
   return (
-    <Box className="interview-management">
-      {!hasData ? (
-        <motion.div 
-          className={`upload-container ${dragActive ? 'drag-active' : ''}`}
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          onClick={triggerFileInput}
-          onDragEnter={handleDrag}
-          onDragLeave={handleDrag}
-          onDragOver={handleDrag}
-          onDrop={handleDrop}
-        >
-          <input 
-            ref={fileInputRef} 
-            type="file" 
-            accept=".csv,.xlsx,.xls" 
-            onChange={handleFileUpload} 
-            className="file-input"
-          />
-          <motion.div 
-            animate={{ y: [0, -5, 0] }} 
-            transition={{ repeat: Infinity, duration: 2 }}
-            className="upload-icon"
+    <Container maxWidth="xl" className="interview-management" sx={{ py: 3 }}>
+      <Paper 
+        elevation={0} 
+        className="page-header" 
+        sx={{ 
+          mb: 3, 
+          p: { xs: 2, sm: 3 }, 
+          borderRadius: '12px', 
+          background: `linear-gradient(145deg, ${theme.palette.primary.light}15, ${theme.palette.primary.main}05)`,
+          display: 'flex',
+          flexDirection: { xs: 'column', sm: 'row' },
+          alignItems: { xs: 'flex-start', sm: 'center' },
+          justifyContent: 'space-between',
+          gap: 2
+        }}
+      >
+        <Box>
+          <Typography 
+            variant="h5" 
+            component="h1" 
+            sx={{ 
+              fontWeight: 700, 
+              color: theme.palette.primary.dark,
+              letterSpacing: '-0.01em'
+            }}
           >
-            <FiUploadCloud size={48} />
-          </motion.div>
-          <Typography variant="h5" className="upload-title">
-            Upload Interview Data
+            Interview Data Analytics
           </Typography>
-          <Typography className="upload-subtitle">
-            {dragActive ? 'Drop your file here' : 'Click or drag files to upload'}
+          <Typography  
+            variant="subtitle1" 
+            sx={{ 
+              color: theme.palette.text.secondary, 
+              mt: 1,
+              fontSize: '0.95rem'
+            }}
+          >
+            Upload and analyze interview data for deeper insights
           </Typography>
-          {isLoading && <CircularProgress className="upload-progress" />}
-          {error && (
-            <Alert severity="error" className="upload-error">
-              {error}
-            </Alert>
-          )}
-        </motion.div>
-      ) : (
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="content-container"
+        </Box>
+      </Paper>
+
+      {!hasData ? (
+        <Card 
+          elevation={2} 
+          sx={{ 
+            borderRadius: '16px',
+            overflow: 'hidden', 
+            border: `1px solid ${theme.palette.divider}`,
+            transition: 'all 0.3s ease'
+          }}
         >
-          {showCharts ? (
-            <ChartView 
-              data={data} 
-              onToggleView={toggleView} 
+          <Box 
+            className={`upload-container ${dragActive ? 'drag-active' : ''}`}
+            onClick={triggerFileInput}
+            onDragEnter={handleDrag}
+            onDragLeave={handleDrag}
+            onDragOver={handleDrag}
+            onDrop={handleDrop}
+            sx={{
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              justifyContent: 'center',
+              padding: { xs: 3, sm: 5 },
+              minHeight: '350px',
+              cursor: 'pointer',
+              transition: 'all 0.2s ease',
+              backgroundColor: dragActive ? `${theme.palette.primary.light}10` : 'transparent',
+              '&:hover': {
+                backgroundColor: `${theme.palette.primary.light}05`
+              }
+            }}
+          >
+            <input 
+              ref={fileInputRef} 
+              type="file" 
+              accept=".csv,.xlsx,.xls" 
+              onChange={handleFileUpload} 
+              style={{ display: 'none' }}
             />
-          ) : (
-            <DataTable />
+            
+            <Box sx={{ textAlign: 'center' }}>
+              <Box 
+                sx={{
+                  width: { xs: '80px', sm: '100px' },
+                  height: { xs: '80px', sm: '100px' },
+                  borderRadius: '50%',
+                  backgroundColor: `${theme.palette.primary.main}15`,
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  margin: '0 auto',
+                  mb: 3,
+                  transition: 'transform 0.3s ease',
+                  animation: dragActive ? 'pulse 1.5s infinite' : 'none',
+                  '@keyframes pulse': {
+                    '0%': { transform: 'scale(1)' },
+                    '50%': { transform: 'scale(1.05)' },
+                    '100%': { transform: 'scale(1)' }
+                  }
+                }}
+              >
+                <FiUploadCloud 
+                  size={isMobile ? 36 : 48} 
+                  color={theme.palette.primary.main} 
+                />
+              </Box>
+              
+              <Typography 
+                variant="h5" 
+                sx={{ 
+                  fontWeight: 600, 
+                  mb: 1,
+                  color: theme.palette.text.primary 
+                }}
+              >
+                {dragActive ? 'Drop your file here' : 'Upload Interview Data'}
+              </Typography>
+              
+              <Typography 
+                variant="body1" 
+                sx={{ 
+                  color: theme.palette.text.secondary,
+                  mb: 3
+                }}
+              >
+                Click or drag files to upload
+              </Typography>
+              
+              <Fade in={!isLoading}>
+                <Button
+                  variant="outlined"
+                  color="primary"
+                  endIcon={<FiArrowRight />}
+                  onClick={triggerFileInput}
+                  sx={{
+                    borderRadius: '8px',
+                    textTransform: 'none',
+                    px: 3,
+                    py: 1,
+                    fontWeight: 500
+                  }}
+                >
+                  Select Files
+                </Button>
+              </Fade>
+              
+              {isLoading && (
+                <Box sx={{ mt: 3, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                  <CircularProgress 
+                    size={40} 
+                    thickness={4} 
+                    sx={{ color: theme.palette.primary.main }}
+                  />
+                  <Typography 
+                    variant="body2" 
+                    sx={{ 
+                      mt: 2, 
+                      color: theme.palette.primary.main,
+                      fontWeight: 500
+                    }}
+                  >
+                    Processing your file...
+                  </Typography>
+                </Box>
+              )}
+            </Box>
+          </Box>
+          
+          {error && (
+            <Box sx={{ p: 2 }}>
+              <Alert 
+                severity="error" 
+                variant="filled"
+                sx={{ 
+                  borderRadius: '8px',
+                  '& .MuiAlert-icon': { alignItems: 'center' }
+                }}
+              >
+                {error}
+              </Alert>
+            </Box>
           )}
-        </motion.div>
+          
+          <Divider />
+          
+          <CardContent sx={{ p: 0 }}>
+            <Box 
+              sx={{ 
+                display: 'flex', 
+                flexDirection: { xs: 'column', sm: 'row' },
+                p: 2
+              }}
+            >
+              <Box 
+                sx={{ 
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: 1.5,
+                  p: 2,
+                  flex: 1,
+                  borderRight: { xs: 'none', sm: `1px solid ${theme.palette.divider}` },
+                  borderBottom: { xs: `1px solid ${theme.palette.divider}`, sm: 'none' },
+                  pb: { xs: 2, sm: 0 },
+                  mb: { xs: 2, sm: 0 }
+                }}
+              >
+                <Box 
+                  sx={{ 
+                    backgroundColor: `${theme.palette.info.light}15`,
+                    borderRadius: '50%',
+                    width: 40,
+                    height: 40,
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center'
+                  }}
+                >
+                  <FiFileText size={20} color={theme.palette.info.main} />
+                </Box>
+                <Box>
+                  <Typography variant="body1" sx={{ fontWeight: 500, color: theme.palette.text.primary }}>
+                    Parse CSV & Excel
+                  </Typography>
+                  <Typography variant="body2" sx={{ color: theme.palette.text.secondary }}>
+                    Support for all interview data formats
+                  </Typography>
+                </Box>
+              </Box>
+              
+              <Box 
+                sx={{ 
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: 1.5,
+                  p: 2,
+                  flex: 1
+                }}
+              >
+                <Box 
+                  sx={{ 
+                    backgroundColor: `${theme.palette.success.light}15`,
+                    borderRadius: '50%',
+                    width: 40,
+                    height: 40,
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center'
+                  }}
+                >
+                  <FiBarChart2 size={20} color={theme.palette.success.main} />
+                </Box>
+                <Box>
+                  <Typography variant="body1" sx={{ fontWeight: 500, color: theme.palette.text.primary }}>
+                    Visualize Data
+                  </Typography>
+                  <Typography variant="body2" sx={{ color: theme.palette.text.secondary }}>
+                    Interactive charts and analytics
+                  </Typography>
+                </Box>
+              </Box>
+            </Box>
+            
+            <Box 
+              sx={{ 
+                bgcolor: `${theme.palette.warning.light}10`, 
+                p: 2,
+                display: 'flex',
+                alignItems: 'center',
+                gap: 1.5
+              }}
+            >
+              <FiInfo size={20} color={theme.palette.warning.main} />
+              <Typography variant="body2" sx={{ color: theme.palette.text.secondary }}>
+                Supported formats: CSV, XLSX, XLS
+              </Typography>
+            </Box>
+          </CardContent>
+        </Card>
+      ) : (
+        <Fade in={hasData} timeout={500}>
+          <Box className="content-container">
+            {showCharts ? ( 
+              <ChartView 
+                data={data} 
+                onToggleView={toggleView} 
+              />
+            ) : (
+              <DataTable />
+            )}
+          </Box>
+        </Fade>
       )}
-    </Box>
+    </Container>
   );
 }
